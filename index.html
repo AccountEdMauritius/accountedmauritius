@@ -35,6 +35,10 @@ main{padding:48px 0 64px}
 section.page{display:block}
 section.page[hidden]{display:none}
 ul,ol{max-width:65ch;padding-left:1.2em}li{margin-bottom:6px}
+.actions{display:flex;flex-wrap:wrap;gap:8px}.actions .btn{margin:0}
+.note{font-size:.95rem;color:var(--muted);margin-top:20px}
+.summary{background:var(--surface);border-left:4px solid var(--accent);padding:16px 20px;margin:24px 0}.summary p{margin:0 0 6px}
+.terms h3{margin-top:28px}
 .lede{font-size:1.2rem;color:var(--muted);margin-top:16px}
 .btn{display:inline-block;background:var(--accent);color:var(--accent-ink);padding:12px 22px;border-radius:4px;text-decoration:none;font-weight:700;margin-top:8px}
 .btn.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);margin-left:8px}
@@ -121,7 +125,7 @@ footer{border-top:2px solid var(--ink);padding:24px 0 40px;color:var(--muted);fo
     <h2>How it works</h2>
     <ol>
       <li><b>Message us.</b> Say hello on WhatsApp or <a href="#contact" data-fb>Facebook</a>.</li>
-      <li><b>Pick your path.</b> Choose the package that fits you.</li>
+      <li><b>Pick your path.</b> Choose the package that fits you, then <a href="https://forms.gle/Nxg27rVMGW14JPrq8" data-reg>register</a>.</li>
       <li><b>Learn and practise.</b> Study at your own pace, with practice and answers.</li>
       <li><b>Walk in confident.</b> Arrive on exam day prepared, with habits that last.</li>
     </ol>
@@ -147,14 +151,15 @@ footer{border-top:2px solid var(--ink);padding:24px 0 40px;color:var(--muted);fo
     <div class="pk">
       <div class="card"><span class="tag">Option 1</span><h3>Notes Pack</h3><div class="price">Rs 2,500</div>
         <ul><li>PDF notes and chapter summaries</li><li>Q&amp;A banks with full answers</li><li>Examiner tips and step-by-step guides</li></ul>
-        <a class="btn" href="#contact" data-wa>Ask on WhatsApp</a></div>
+        <div class="actions"><a class="btn" href="https://forms.gle/Nxg27rVMGW14JPrq8" data-reg>Register</a><a class="btn alt" href="#contact" data-wa>Ask on WhatsApp</a></div></div>
       <div class="card"><span class="tag">Option 2</span><h3>Video Course</h3><div class="price">Rs 5,500</div>
         <ul><li>Everything in the Notes Pack</li><li>Chapter-by-chapter video lessons</li><li>The Complete Study Book</li></ul>
-        <a class="btn" href="#contact" data-wa>Ask on WhatsApp</a></div>
+        <div class="actions"><a class="btn" href="https://forms.gle/Nxg27rVMGW14JPrq8" data-reg>Register</a><a class="btn alt" href="#contact" data-wa>Ask on WhatsApp</a></div></div>
       <div class="card"><span class="tag">Option 3 &middot; Limited places</span><h3>Complete Exam Success</h3><div class="price">Rs 10,000</div>
         <ul><li>Everything in the Video Course</li><li>A live session every quarter</li><li>Mock exam before your sitting</li></ul>
-        <a class="btn" href="#contact" data-wa>Ask on WhatsApp</a></div>
+        <div class="actions"><a class="btn" href="https://forms.gle/Nxg27rVMGW14JPrq8" data-reg>Register</a><a class="btn alt" href="#contact" data-wa>Ask on WhatsApp</a></div></div>
     </div>
+    <p class="note">By registering you accept the <a href="#terms">Terms and Conditions</a>. Content is sent once your payment is confirmed.</p>
   </div>
 </section>
 
@@ -166,14 +171,15 @@ footer{border-top:2px solid var(--ink);padding:24px 0 40px;color:var(--muted);fo
     <div class="pk">
       <div class="card"><span class="tag">Option 1</span><h3>Notes Pack</h3><div class="price">Rs 4,000</div>
         <ul><li>PDF notes and chapter summaries</li><li>Q&amp;A banks with full answers</li><li>Examiner tips and step-by-step guides</li></ul>
-        <a class="btn" href="#contact" data-wa>Ask on WhatsApp</a></div>
+        <div class="actions"><a class="btn" href="https://forms.gle/Nxg27rVMGW14JPrq8" data-reg>Register</a><a class="btn alt" href="#contact" data-wa>Ask on WhatsApp</a></div></div>
       <div class="card"><span class="tag">Option 2</span><h3>Video Course</h3><div class="price">Rs 8,000</div>
         <ul><li>Everything in the Notes Pack</li><li>Chapter-by-chapter video lessons</li><li>The Complete Study Book</li></ul>
-        <a class="btn" href="#contact" data-wa>Ask on WhatsApp</a></div>
+        <div class="actions"><a class="btn" href="https://forms.gle/Nxg27rVMGW14JPrq8" data-reg>Register</a><a class="btn alt" href="#contact" data-wa>Ask on WhatsApp</a></div></div>
       <div class="card"><span class="tag">Option 3 &middot; Limited places</span><h3>Complete Exam Success</h3><div class="price">Rs 13,000</div>
         <ul><li>Everything in the Video Course</li><li>A live session every quarter</li><li>Mock exam before your sitting</li></ul>
-        <a class="btn" href="#contact" data-wa>Ask on WhatsApp</a></div>
+        <div class="actions"><a class="btn" href="https://forms.gle/Nxg27rVMGW14JPrq8" data-reg>Register</a><a class="btn alt" href="#contact" data-wa>Ask on WhatsApp</a></div></div>
     </div>
+    <p class="note">By registering you accept the <a href="#terms">Terms and Conditions</a>. Content is sent once your payment is confirmed.</p>
   </div>
 </section>
 
@@ -206,16 +212,53 @@ footer{border-top:2px solid var(--ink);padding:24px 0 40px;color:var(--muted);fo
   </dl>
 </section>
 
+<section class="page terms" id="terms" hidden>
+  <h1>Terms and Conditions</h1>
+  <p class="lede">Last updated 15 November 2026</p>
+  <div class="summary">
+    <p><b>All sales are final.</b> There are no refunds once content is delivered.</p>
+    <p><b>Personal use only.</b> One registered buyer, for their own study.</p>
+    <p><b>No sharing.</b> Do not copy, post or pass on any content.</p>
+  </div>
+  <p>These terms apply to every purchase of AccountEd Mauritius content: notes, question banks, videos, study books and live sessions. The seller is Hassan Mustan, trading as AccountEd Mauritius. By ticking the agreement box on the registration form and paying, the buyer accepts these terms. If the buyer is under 18, a parent or guardian must read and accept the terms and make the payment on the buyer's behalf.</p>
+
+  <h3>1. Access and use</h3>
+  <p>One named person, the registered buyer, gets a personal licence for their own study only. It cannot be transferred, sold, lent or shared. The buyer must give true details. Access is linked to the registered name and contact details, and we may ask the buyer to confirm their identity.</p>
+  <p>The content follows the Cambridge O Level and A Level Accounting syllabuses and past examination material. It is a study aid, and no exam result is guaranteed.</p>
+
+  <h3>2. Payment and delivery</h3>
+  <p>Payment details are given when you register. Content is sent to the registered buyer once payment is confirmed.</p>
+
+  <h3>3. No refund policy</h3>
+  <p>All sales are final. Content is digital and made available as soon as payment is confirmed, so there are no refunds, exchanges or credits. This applies to every package and level, and covers changing your mind, no longer needing the content, missing a live session, or not sitting the exam. Message us for the free Chapter 1 before you buy, so you can see the style of the content first.</p>
+  <p>Exception: if a buyer is charged by mistake or pays twice for the same package, they must tell us within 7 days and we will correct it. Nothing here removes any right under Mauritian law that cannot be waived.</p>
+
+  <h3>4. Copyright and misuse</h3>
+  <p>All content is the copyright of AccountEd Mauritius and its author, Hassan Mustan. This covers notes, summaries, question banks, answers, videos, slides, study books, cheat sheets, templates and designs. Buying gives a licence, not ownership. Cambridge past papers and mark schemes remain the property of Cambridge University Press &amp; Assessment.</p>
+  <p>Buyers must not copy, share, post, resell, upload, record, screen-capture, translate or distribute any content, in print or online. This includes sending it to friends or classmates, posting in groups or on social media, and listing it on file-sharing, tuition or marketplace sites. They must not remove names, watermarks or copyright notices.</p>
+  <p>We may mark delivered content with the buyer's name or an identifier so copies can be traced. If content is shared, we may end access without a refund and take the legal steps Mauritian law allows. The buyer is responsible for sharing that happens through their account, device or files.</p>
+
+  <h3>5. Online conduct, security and data</h3>
+  <p>Buyers must follow Mauritian law, including the Information and Communication Technologies Act 2001. They must not post anything obscene, indecent, offensive, abusive, threatening, false or misleading, or harass staff or other students. We may remove content, block users or end access without a refund, and may report serious cases to the ICT Authority or the police.</p>
+  <p>Buyers must keep login details, links and access codes private and must not try to access our systems or another student's data. Doing so may be an offence under the Cybersecurity and Cybercrime Act 2021. Recording, screenshotting or streaming live sessions is not allowed.</p>
+  <p>We collect only what is needed to register you, take payment, deliver content and give support. We keep it secure, do not sell it, and share it only where needed for payment or delivery. Marketing messages are sent only with consent. Under the Data Protection Act 2017, buyers may ask to see, correct or delete their details by writing to <span data-mail>acced2026@gmail.com</span>.</p>
+
+  <h3>6. General</h3>
+  <p>Live sessions and mock exams apply only to the packages that list them. Dates and joining details will be given, and sessions may be moved with notice.</p>
+  <p>We may update the content for syllabus changes and may update these terms. The terms in force on the day of payment apply to that purchase. These terms are governed by Mauritian law. We will try to settle problems directly first. Questions go to <span data-mail>acced2026@gmail.com</span>.</p>
+  <p>By ticking the agreement box and paying, the buyer confirms they have read and accept these terms and understand that all sales are final.</p>
+</section>
+
 </main>
 
 <footer><div class="wrap foot">
-  <span>&copy; 2026 AccountEd Mauritius. All rights reserved.</span>
+  <span>&copy; 2026 AccountEd Mauritius. All rights reserved. <a href="#terms">Terms and Conditions</a></span>
   <span>Accounting made simple. Learn it once, keep it for life.</span>
 </div></footer>
 
 <script>
 /* Fill these in when ready. Leave a value empty to keep its placeholder. */
-var CONTACT = { whatsapp: "+230 5732 5255", email: "acced2026@gmail.com", facebook: "https://www.facebook.com/share/1CYN6wxDMU/" };
+var CONTACT = { register: "https://forms.gle/Nxg27rVMGW14JPrq8", whatsapp: "+230 5732 5255", email: "acced2026@gmail.com", facebook: "https://www.facebook.com/share/1CYN6wxDMU/" };
 
 (function(){
   var pages = Array.prototype.slice.call(document.querySelectorAll("section.page"));
@@ -238,6 +281,7 @@ var CONTACT = { whatsapp: "+230 5732 5255", email: "acced2026@gmail.com", facebo
     document.getElementById("c-wa").innerHTML = '<a href="https://wa.me/'+wa+'">'+CONTACT.whatsapp+'</a>';
   }
   if(CONTACT.facebook) document.querySelectorAll("[data-fb]").forEach(function(a){ a.href = CONTACT.facebook; });
+  if(CONTACT.register) document.querySelectorAll("[data-reg]").forEach(function(a){ a.href = CONTACT.register; });
   if(CONTACT.email) document.getElementById("c-mail").textContent = CONTACT.email;
   if(CONTACT.facebook) document.getElementById("c-fb").innerHTML = '<a href="'+CONTACT.facebook+'">AccountEd Mauritius on Facebook</a>';
 })();
