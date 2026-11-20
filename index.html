@@ -1,361 +1,796 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AccountEd Mauritius</title>
+<title>AccountEd Mauritius | O Level and A Level Accounting, learn it once, keep it for life</title>
+<meta name="description" content="Official website of AccountEd Mauritius: O Level and A Level Accounting study content, Mauritius. Notes, video lessons and exam coaching. One payment, lifetime access.">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#EDE8D8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%233F6F9A'/%3E%3Ctext x='20' y='23' font-family='Arial' font-weight='800' font-size='17' text-anchor='middle' fill='%23F6F2E6'%3EAE%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* Layout idea: one long-scroll sales page, numbered sections, one repeated primary action (Register). */
 :root{
   --bg:#EDE8D8; --surface:#F6F2E6; --ink:#2F3320; --muted:#5E6350; --accent:#3F6F9A; --rule:#CFC8B0;
-  --btn-bg:#2F3320; --btn-fg:#EDE8D8;
-  --font:Manrope, Calibri, Carlito, "Segoe UI", Helvetica, Arial, sans-serif;
+  --on-accent:#F6F2E6; --stamp:#9B3B2E; --hdr:rgba(237,232,216,.88);
+  --radius:18px;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){--bg:#1F2318; --surface:#292E20; --ink:#EDE8D8; --muted:#B4B49E; --accent:#7FB0DA; --rule:#41473A; --btn-bg:#EDE8D8; --btn-fg:#1F2318; color-scheme:dark}
-}
-:root[data-theme="dark"]{--bg:#1F2318; --surface:#292E20; --ink:#EDE8D8; --muted:#B4B49E; --accent:#7FB0DA; --rule:#41473A; --btn-bg:#EDE8D8; --btn-fg:#1F2318; color-scheme:dark}
+html{color-scheme:light}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:18px;line-height:1.6}
-h1,h2,h3{font-weight:800;line-height:1.08;letter-spacing:-.02em;text-wrap:balance;margin:0}
-h1{font-size:clamp(2.3rem,7vw,4.2rem)} h2{font-size:clamp(1.8rem,5vw,2.9rem)} h3{font-size:1.2rem;letter-spacing:-.01em}
-em{font-style:italic;color:var(--accent)}
-p{margin:0 0 1em;max-width:62ch}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:17px;overflow-x:clip}
+h1,h2,h3,p,ul,dl,dd{margin:0}
+ul{padding:0;list-style:none}
 a{color:var(--accent)}
-:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
-.wrap{max-width:960px;margin:0 auto;padding:0 20px}
-.top{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--rule)}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
-.brand{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-weight:800;letter-spacing:-.01em}
-.brand svg{width:34px;height:34px}
-.links{display:flex;gap:22px;align-items:center}
-.links a.l{color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem}
-.links a.l:hover{color:var(--accent)}
-.btn{display:inline-block;background:var(--btn-bg);color:var(--btn-fg);padding:14px 26px;border-radius:999px;text-decoration:none;font-weight:800}
-.btn.sm{padding:9px 18px;font-size:.95rem}
-.btn:hover{opacity:.88}
-.tlink{color:var(--ink);font-weight:700;text-underline-offset:4px}
-.cta{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;margin-top:28px}
-.sec{padding:72px 0;border-top:1px solid var(--rule);scroll-margin-top:64px}
-.num{display:block;font-size:.85rem;font-weight:800;letter-spacing:.14em;color:var(--accent);margin-bottom:14px}
-.hero{padding:64px 0 56px}
-.pill{display:inline-block;background:var(--surface);border:1px solid var(--rule);color:var(--ink);font-weight:800;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;padding:8px 16px;border-radius:999px;margin:0 0 22px}
-.once{font-weight:800;color:var(--accent);font-size:.95rem;margin-top:-4px}
-.free{margin:22px 0 0;font-weight:600}.free a{font-weight:800}
-.lede{font-size:1.25rem;color:var(--muted);margin-top:22px}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:0;margin:40px 0 0;border:1px solid var(--rule);background:var(--surface)}
-.facts div{padding:16px 18px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
-.facts dt{font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.facts dd{margin:4px 0 0;font-weight:600}
-.list{list-style:none;margin:32px 0 0;padding:0;max-width:70ch}
-.list li{display:grid;grid-template-columns:3rem 1fr;gap:6px 12px;padding:18px 0;border-top:1px solid var(--rule)}
-.list li:last-child{border-bottom:1px solid var(--rule)}
-.list .n{font-weight:800;font-size:1.6rem;color:var(--accent);line-height:1}
-.list b{display:block}
-.pairs{margin-top:32px;display:grid;gap:0}
-.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px 32px;padding:20px 0;border-top:1px solid var(--rule)}
-.pair:last-child{border-bottom:1px solid var(--rule)}
-.pair p{margin:0}.pair .w{font-weight:800}.pair .a{color:var(--muted)}
-.book ul{margin:20px 0 0;padding-left:1.2em;max-width:62ch}.book li{margin-bottom:8px}
-.tabs{display:flex;gap:10px;margin:28px 0 0}
-.tab{font:inherit;font-weight:800;padding:10px 20px;border-radius:999px;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
-.tab[aria-pressed="true"]{background:var(--btn-bg);color:var(--btn-fg)}
-.pk{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:24px}
-.pk[hidden]{display:none}
-.card{background:var(--surface);border:1px solid var(--rule);padding:24px;display:flex;flex-direction:column;gap:10px}
-.tag{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:800}
-.price{font-size:2.2rem;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-.card ul{margin:0;padding-left:1.1em;flex:1}.card li{margin-bottom:6px}
-.note{font-size:.95rem;color:var(--muted);margin-top:22px}
-.fit{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-top:32px}
-.fit h3{margin-bottom:10px}.fit ul{margin:0;padding-left:1.2em}.fit li{margin-bottom:8px}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin:0 0 48px}
-.stat b{display:block;font-size:clamp(2.4rem,7vw,3.6rem);font-weight:800;letter-spacing:-.03em;line-height:1}
-.stat span{color:var(--muted);font-weight:600}
-.about{display:grid;grid-template-columns:200px 1fr;gap:36px;align-items:start}
-.photo{width:200px;height:200px;max-width:100%;border-radius:50%;object-fit:cover;display:block}
-.role{color:var(--accent);font-weight:800;margin:8px 0 0}
-.creds{font-weight:600;margin-top:10px}
-.about h3{margin-top:26px}
-.faq{margin-top:28px;max-width:70ch}
-.faq dt{font-weight:800;margin-top:22px}.faq dd{margin:4px 0 0;color:var(--muted)}
-.close{text-align:left}
-dl.contact{display:grid;grid-template-columns:max-content 1fr;gap:10px 24px;margin:36px 0 0}
-dl.contact dt{font-weight:800}dl.contact dd{margin:0}
-footer{border-top:1px solid var(--rule);padding:28px 0 44px;color:var(--muted);font-size:.92rem}
-.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px}
-.terms{padding:48px 0 72px}.terms h3{margin-top:30px}
-.summary{background:var(--surface);border-left:4px solid var(--accent);padding:16px 20px;margin:24px 0}.summary p{margin:0 0 6px}
-@media (max-width:700px){
-  .links a.l{display:none}
-  .about{grid-template-columns:1fr}.photo{max-width:160px}
-  .pair{grid-template-columns:1fr}
-  .sec{padding:52px 0} body{font-size:17px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+[hidden]{display:none!important}
+.wrap{width:min(1080px,100% - 32px);margin-inline:auto}
+
+/* ledger paper behind everything */
+.paper{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:repeating-linear-gradient(to bottom,transparent 0 35px,var(--rule) 35px 36px);opacity:.38}
+.paper::after{content:"";position:absolute;top:0;bottom:0;left:max(14px,calc(50% - 560px));width:1px;background:var(--stamp);opacity:.35}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+header.top,main,footer,#terms-view{position:relative;z-index:1}
+
+/* header */
+header.top{position:sticky;top:0;z-index:20;background:var(--hdr);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.bar{display:flex;align-items:center;gap:16px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-weight:800;letter-spacing:-.01em;font-size:1.02rem}
+.brand svg{width:34px;height:34px;flex:none}
+nav.main{margin-left:auto;display:flex;gap:26px}
+nav.main a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.94rem;padding:6px 0;border-bottom:2px solid transparent}
+nav.main a:hover{border-bottom-color:var(--accent)}
+.menu-btn{display:none;margin-left:auto;background:none;border:1px solid var(--rule);border-radius:999px;width:42px;height:42px;color:var(--ink);cursor:pointer;font:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:13px 24px;font:inherit;font-weight:700;font-size:.97rem;text-decoration:none;cursor:pointer;border:2px solid var(--accent);transition:transform .15s,background .15s,color .15s;min-height:48px;text-align:center}
+.btn.solid{background:var(--accent);color:var(--on-accent)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:hover{transform:translateY(-2px)}
+.btn.solid:hover{filter:brightness(1.08)}
+.btn.ghost:hover{background:var(--accent);color:var(--on-accent)}
+.btn.sm{white-space:nowrap;padding:9px 18px;min-height:42px;font-size:.92rem}
+@media (max-width:860px){
+  nav.main{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:var(--surface);border-bottom:1px solid var(--rule);padding:6px 16px 14px}
+  nav.main.open{display:flex}
+  nav.main a{padding:13px 0;border-bottom:1px solid var(--rule)}
+  .menu-btn{display:block}
+  .bar .btn{margin-left:0}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (max-width:420px){ .brand span{font-size:.86rem;line-height:1.15;max-width:7.5em} .brand{gap:8px} .bar .btn.sm{padding:8px 14px} .bar{gap:10px} }
+
+/* hero */
+.hero{padding:56px 0 40px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.pill{display:inline-block;white-space:nowrap;background:var(--surface);border:1px solid var(--rule);border-radius:999px;padding:7px 16px;font-weight:700;font-size:.85rem;color:var(--muted);margin-bottom:22px}
+h1{font-size:clamp(2.35rem,6.4vw,4.4rem);line-height:1.04;letter-spacing:-.035em;font-weight:800}
+h1 em{font-style:normal;color:var(--accent);
+  background:linear-gradient(var(--accent),var(--accent)) 0 calc(100% - 2px)/0 2px no-repeat,
+             linear-gradient(var(--accent),var(--accent)) 0 100%/0 2px no-repeat;
+  padding-bottom:6px;animation:dbl 1.1s .5s cubic-bezier(.6,0,.2,1) forwards}
+h1 em+em{animation-delay:1.1s}
+@keyframes dbl{to{background-size:100% 2px}}
+.lede{font-size:1.14rem;color:var(--muted);max-width:34em;margin-top:22px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.free-line{margin-top:20px;font-weight:600;font-size:.97rem}
+.free-line a{font-weight:700}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:0;margin-top:34px;border-top:1px solid var(--rule)}
+.facts div{padding:13px 16px 13px 0;border-bottom:1px solid var(--rule)}
+.facts dt{font-size:.8rem;color:var(--muted);font-weight:600}
+.facts dd{font-weight:700;font-size:.97rem;line-height:1.4}
+
+/* live ledger */
+.ledger{overflow:hidden;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:20px 20px 16px;position:relative;box-shadow:0 1px 0 var(--rule),0 18px 40px -22px rgba(47,51,32,.45)}
+.ledger-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:8px}
+.ledger-h b{font-size:.95rem}
+.ledger-h span{font-size:.8rem;color:var(--muted);font-weight:600}
+.ledger table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:.92rem}
+.ledger th{font-size:.78rem;text-align:right;color:var(--muted);font-weight:700;padding:6px 4px;border-bottom:2px solid var(--ink)}
+.ledger th:first-child{text-align:left}
+.ledger td{padding:5px 4px;border-bottom:1px dashed var(--rule);text-align:right;height:31px}
+.ledger td:first-child{text-align:left;font-weight:600}
+.ledger td.cr-name{padding-left:22px;font-weight:500;color:var(--muted)}
+.ledger tbody{display:table-row-group}
+.ledger tr.in{animation:post .55s ease-out both}
+@keyframes post{from{opacity:0;transform:translateX(-10px);background:rgba(63,111,154,.18)}to{opacity:1;transform:none;background:transparent}}
+.tbl-wrap{min-height:312px}
+.totals td{border-top:2px solid var(--ink);border-bottom:3px double var(--ink);font-weight:800;height:36px}
+.narr{margin-top:12px;padding-right:120px;font-size:.88rem;color:var(--muted);min-height:2.7em;font-weight:500}
+.stamp{position:absolute;right:14px;bottom:10px;border:3px solid var(--stamp);color:var(--stamp);font-weight:800;letter-spacing:.06em;padding:3px 12px;border-radius:8px;transform:rotate(-9deg) scale(1.6);opacity:0;pointer-events:none;font-size:1rem}
+.stamp.on{animation:stamp .5s cubic-bezier(.2,1.4,.4,1) forwards}
+@keyframes stamp{to{opacity:.9;transform:rotate(-9deg) scale(1)}}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:34px}.hero{padding-top:36px}}
+@media (max-width:420px){.ledger{padding:16px 12px 12px}.ledger table{font-size:.85rem}.tbl-wrap{min-height:296px}}
+
+/* sections */
+section{padding:72px 0;scroll-margin-top:64px}
+.sec-head{display:flex;align-items:flex-start;gap:16px;margin-bottom:34px}
+.num{flex:none;font-weight:800;font-size:.9rem;color:var(--on-accent);background:var(--accent);border-radius:999px;min-width:42px;height:42px;display:grid;place-items:center;margin-top:4px}
+h2{font-size:clamp(1.75rem,4.2vw,2.7rem);line-height:1.1;letter-spacing:-.03em;font-weight:800;max-width:20em}
+.sec-sub{color:var(--muted);margin-top:10px;max-width:36em;font-size:1.04rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+.grid.wide{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:24px}
+.card h3{font-size:1.1rem;line-height:1.25;letter-spacing:-.01em;margin-bottom:8px;font-weight:800}
+.card p{color:var(--muted);font-size:.97rem}
+.ico{width:44px;height:44px;margin-bottom:14px;color:var(--accent)}
+.pair{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--rule)}
+.pair:first-child{border-top:1px solid var(--rule)}
+.pair p{padding:20px 20px 20px 0}
+.pair .worry{font-weight:700;font-size:1.05rem}
+.pair .answer{color:var(--muted);border-left:3px solid var(--accent);padding-left:20px}
+@media (max-width:640px){.pair{grid-template-columns:1fr}.pair p{padding:14px 0 4px}.pair .answer{padding:4px 0 16px 16px}}
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.step{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:24px;position:relative}
+.step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;border:2px solid var(--accent);color:var(--accent);font-weight:800;margin-bottom:14px}
+.step h3{font-size:1.08rem;margin-bottom:6px;font-weight:800}
+.step p{color:var(--muted);font-size:.96rem}
+
+/* word cloud */
+.cloud-band{padding:64px 0 24px}
+.cloud-title{font-size:clamp(1.5rem,3.6vw,2.2rem);letter-spacing:-.03em;line-height:1.12;font-weight:800;max-width:22em}
+.cloud{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px 8px;margin:26px auto 0;padding:20px 8px;max-width:980px}
+.cloud button{font:inherit;background:none;border:0;border-radius:999px;cursor:pointer;color:var(--ink);font-weight:800;letter-spacing:-.02em;line-height:1.1;padding:4px 10px;animation:bob var(--d,7s) ease-in-out var(--dl,0s) infinite alternate;transition:color .2s,background .2s,transform .2s}
+.cloud button:hover,.cloud button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);animation-play-state:paused}
+.cloud .w1{font-size:.95rem;font-weight:600;color:var(--muted)}
+.cloud .w2{font-size:1.2rem;font-weight:700}
+.cloud .w3{font-size:1.65rem;color:var(--accent)}
+.cloud .w4{font-size:2.35rem}
+.cloud .w5{font-size:clamp(2.6rem,7vw,3.9rem);color:var(--accent)}
+@keyframes bob{from{transform:translateY(-3px)}to{transform:translateY(3px)}}
+.def{max-width:640px;margin:10px auto 0;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:16px 22px;text-align:center;min-height:84px;display:flex;align-items:center;justify-content:center}
+.def b{color:var(--accent)}
+
+/* book */
+.book{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+.book-art{background:var(--accent);color:var(--on-accent);border-radius:var(--radius);padding:34px 30px;aspect-ratio:4/3;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.book-art::before{content:"";position:absolute;left:26px;top:0;bottom:0;width:2px;background:rgba(246,242,230,.4)}
+.book-art b{font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:1.1;letter-spacing:-.03em;padding-left:26px;font-weight:800}
+.book-art small{padding-left:26px;font-weight:600;opacity:.9}
+@media (max-width:760px){.book{grid-template-columns:1fr}}
+.tick li{padding:10px 0 10px 32px;position:relative;border-bottom:1px solid var(--rule)}
+.tick li::before{content:"";position:absolute;left:2px;top:17px;width:12px;height:7px;border-left:3px solid var(--accent);border-bottom:3px solid var(--accent);transform:rotate(-45deg)}
+
+/* packages */
+.tabs{display:inline-flex;background:var(--surface);border:1px solid var(--rule);border-radius:999px;padding:4px;margin-bottom:26px}
+.tabs button{font:inherit;font-weight:700;border:0;background:none;color:var(--muted);padding:11px 26px;border-radius:999px;cursor:pointer;min-height:44px}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--on-accent)}
+.pk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.pk{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:26px 24px;display:flex;flex-direction:column;position:relative}
+.pk.best{border:2px solid var(--accent)}
+.badge{position:absolute;top:-13px;right:20px;background:var(--stamp);color:#fff;font-weight:700;font-size:.8rem;padding:4px 14px;border-radius:999px}
+.pk h3{font-size:1.2rem;font-weight:800;letter-spacing:-.01em}
+.price{font-size:2.4rem;font-weight:800;letter-spacing:-.04em;margin-top:10px;line-height:1.1;font-variant-numeric:tabular-nums}
+.price small{font-size:1rem;font-weight:700;letter-spacing:0;color:var(--muted);margin-right:4px}
+.once{color:var(--muted);font-weight:600;font-size:.9rem;margin-bottom:16px}
+.incl{font-weight:700;font-size:.92rem;margin-bottom:6px}
+.pk ul{flex:1;margin-bottom:20px}
+.pk li{font-size:.94rem;padding:7px 0 7px 26px;position:relative;border-bottom:1px solid var(--rule)}
+.pk li::before{content:"";position:absolute;left:2px;top:13px;width:10px;height:6px;border-left:2.5px solid var(--accent);border-bottom:2.5px solid var(--accent);transform:rotate(-45deg)}
+.pk .btns{display:grid;gap:8px}
+.note{color:var(--muted);font-size:.93rem;margin-top:20px;max-width:46em}
+
+.cmp{margin-top:44px}
+.cmp h3{font-size:1.35rem;letter-spacing:-.02em;font-weight:800;margin-bottom:14px}
+.cmp-scroll{overflow-x:auto;border:1px solid var(--rule);border-radius:var(--radius);background:var(--surface)}
+.cmp table{width:100%;border-collapse:collapse;font-size:.93rem;min-width:430px}
+.cmp th,.cmp td{padding:12px 10px;text-align:center;border-bottom:1px solid var(--rule);vertical-align:middle}
+.cmp th:first-child,.cmp td:first-child{text-align:left;padding-left:16px;font-weight:600;width:44%}
+.cmp thead th{font-weight:800;vertical-align:bottom;padding-top:16px}
+.cmp thead th.best{color:var(--accent)}
+.cmp .p{display:block;font-size:1.15rem;font-weight:800;letter-spacing:-.02em;margin-top:4px;font-variant-numeric:tabular-nums}
+.cmp .lim{display:block;font-size:.72rem;font-weight:700;color:var(--stamp);margin-top:2px}
+.cmp td.y::before{content:"";display:inline-block;width:12px;height:7px;border-left:3px solid var(--accent);border-bottom:3px solid var(--accent);transform:rotate(-45deg) translateY(-3px)}
+.cmp td.n{color:var(--muted);opacity:.6}
+.cmp tbody tr:last-child td{border-bottom:0}
+.cmp td.best,.cmp th.best{background:rgba(63,111,154,.07)}
+.cmp-hint{display:none;font-size:.8rem;color:var(--muted);margin-top:8px}
+@media (max-width:620px){
+  .cmp table{min-width:0;table-layout:fixed;font-size:.8rem}
+  .cmp th,.cmp td{padding:9px 3px}
+  .cmp th:first-child,.cmp td:first-child{width:37%;padding-left:10px}
+  .cmp thead th{font-size:.76rem;line-height:1.2}
+  .cmp .p{font-size:.86rem}
+  .cmp .btn.sm{padding:8px 4px;min-height:38px;font-size:.74rem;width:96%}
+  .cmp td.y::before{width:10px;height:6px}
+}
+
+/* fit */
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:700px){.fit{grid-template-columns:1fr}}
+.fit .card ul li{padding:8px 0;border-bottom:1px solid var(--rule);font-size:.97rem}
+.fit .no{border-style:dashed}
+
+/* author */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:30px}
+.stat{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:18px 22px}
+.stat b{display:block;font-size:2rem;letter-spacing:-.03em;color:var(--accent);line-height:1.1;font-weight:800}
+.stat span{color:var(--muted);font-size:.92rem;font-weight:600}
+.author{display:grid;grid-template-columns:200px 1fr;gap:34px;align-items:start}
+.photo{width:200px;height:200px;border-radius:50%;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;font-size:3.4rem;font-weight:800;letter-spacing:-.04em;overflow:hidden;border:4px solid var(--surface);box-shadow:0 0 0 1px var(--rule)}
+.photo img{width:100%;height:100%;object-fit:cover}
+.author h3{font-size:1.7rem;letter-spacing:-.03em;font-weight:800}
+.role{color:var(--accent);font-weight:700;margin-bottom:10px}
+.mvg{margin-top:20px;border-top:1px solid var(--rule)}
+.mvg div{display:grid;grid-template-columns:90px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--rule)}
+.mvg dt{font-weight:800}
+.mvg dd{color:var(--muted)}
+@media (max-width:700px){.author{grid-template-columns:1fr;justify-items:start}.photo{width:150px;height:150px;font-size:2.6rem}}
+
+/* faq */
+details{border-bottom:1px solid var(--rule)}
+details:first-of-type{border-top:1px solid var(--rule)}
+summary{cursor:pointer;font-weight:700;font-size:1.05rem;padding:20px 40px 20px 0;list-style:none;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:6px;top:15px;font-size:1.7rem;color:var(--accent);font-weight:600;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);padding:0 0 22px;max-width:42em}
+
+/* contact */
+.closing{background:var(--accent);color:var(--on-accent);border-radius:28px;padding:clamp(28px,6vw,64px)}
+.closing h2{color:var(--on-accent)}
+.closing p{opacity:.92}
+.closing .btn.solid{background:var(--on-accent);color:var(--accent);border-color:var(--on-accent)}
+.closing .btn.ghost{color:var(--on-accent);border-color:var(--on-accent)}
+.closing .btn.ghost:hover{background:var(--on-accent);color:var(--accent)}
+.closing a:not(.btn){color:var(--on-accent);font-weight:700}
+.contact-list{margin-top:26px;display:grid;gap:8px;font-weight:600}
+.contact-list li{border-top:1px solid rgba(246,242,230,.35);padding-top:8px;display:flex;flex-wrap:wrap;gap:4px 14px}
+.contact-list li span{min-width:90px;opacity:.85}
+
+footer{border-top:1px solid var(--rule);padding:30px 0 40px;color:var(--muted);font-size:.92rem;background:var(--bg)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 30px}
+footer a{color:var(--ink);font-weight:600}
+
+/* terms */
+#terms-view{padding:44px 0 80px;background:var(--bg)}
+.doc{max-width:760px}
+.doc h1{font-size:clamp(2rem,5vw,3rem);margin:14px 0 6px}
+.doc h2{font-size:1.35rem;margin:36px 0 8px;letter-spacing:-.02em}
+.doc p,.doc li{color:var(--muted)}
+.doc p+p{margin-top:10px}
+.doc ul{list-style:disc;padding-left:22px}
+.summary{background:var(--surface);border:1px solid var(--rule);border-left:5px solid var(--stamp);border-radius:var(--radius);padding:20px 24px;margin:24px 0}
+.summary b{color:var(--ink)}
+.summary li{margin:4px 0}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  h1 em{background-size:100% 2px}
+}
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap bar">
-  <a class="brand" href="#home" aria-label="AccountEd Mauritius home">
-    <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="8" fill="var(--accent)"/><text x="20" y="25" text-anchor="middle" font-family="Manrope, Georgia, serif" font-weight="800" font-size="16" fill="#FFFFFF">AE</text><path d="M9 29h22M9 32.5h22" stroke="#FFFFFF" stroke-width="1.6"/></svg>
-    AccountEd Mauritius
-  </a>
-  <nav class="links" aria-label="Main">
-    <a class="l" href="#inside">What you get</a><a class="l" href="#packages">Packages</a><a class="l" href="#author">The author</a><a class="l" href="#questions">Questions</a>
-    <a class="btn sm" href="https://forms.gle/Nxg27rVMGW14JPrq8" data-reg>Register &rarr;</a>
-  </nav>
-</div></header>
+<div class="paper" aria-hidden="true"></div>
+<canvas id="bg" aria-hidden="true"></canvas>
 
-<main id="site" class="wrap">
-
-<section class="hero" id="home">
-  <p class="pill">Lifetime access &middot; One payment</p>
-  <h1>Accounting made <em>simple</em>. Learn it once. Keep it for <em>life</em>.</h1>
-  <p class="lede">Study notes, video lessons and exam coaching for O Level and A Level Accounting, Grade 10 to 13, in Mauritius.</p>
-  <div class="cta"><a class="btn" href="https://forms.gle/Nxg27rVMGW14JPrq8" data-reg>Register &rarr;</a><a class="tlink" href="#contact" data-wa>Message us on WhatsApp</a></div>
-  <p class="free"><b>Try it free:</b> <a href="https://drive.google.com/file/d/1-LpKw_PNspt3DjL4Md9spiq7zdx6nrYO/view?usp=sharing" target="_blank" rel="noopener">O Level Chapter 1</a> &middot; <a href="https://drive.google.com/file/d/1wFOGU3o7pq4X3hYeWs6GIuWL8neIlO52/view?usp=sharing" target="_blank" rel="noopener">A Level Chapter 1</a></p>
-  <dl class="facts">
-    <div><dt>Levels</dt><dd>O Level and A Level Accounting</dd></div>
-    <div><dt>Students</dt><dd>Grade 10 to 13, Mauritius</dd></div>
-    <div><dt>Format</dt><dd>PDF notes, video lessons, Complete Study Book</dd></div>
-    <div><dt>Access</dt><dd>Lifetime. One payment, sent once confirmed</dd></div>
-    <div><dt>From</dt><dd>Rs 2,500 (O Level), Rs 4,000 (A Level)</dd></div>
-  </dl>
-</section>
-
-<section class="sec" id="inside">
-  <span class="num">01</span>
-  <h2>What you get, in <em>four</em> promises.</h2>
-  <ol class="list">
-    <li><span class="n">1</span><div><b>Understand, not memorise.</b>Every idea explained in simple language, with real examples.</div></li>
-    <li><span class="n">2</span><div><b>Practise with answers.</b>Questions in every chapter, with full, worked answers to learn from.</div></li>
-    <li><span class="n">3</span><div><b>Keep the marks you would lose.</b>Examiner tips and common-mistake warnings built into your notes.</div></li>
-    <li><span class="n">4</span><div><b>Study habits that last.</b>Sustainable habits that stay with you beyond exam day.</div></li>
-  </ol>
-</section>
-
-<section class="sec" id="problem">
-  <span class="num">02</span>
-  <h2>Does accounting feel <em>like this</em>?</h2>
-  <div class="pairs">
-    <div class="pair"><p class="w">Confusing terms. Debit, credit, ledger. It can sound like another language.</p><p class="a">We explain every idea in simple language, with real examples.</p></div>
-    <div class="pair"><p class="w">Endless rules. Pages of rules and no clear way in.</p><p class="a">Clear step-by-step methods you can repeat on exam day.</p></div>
-    <div class="pair"><p class="w">Exam guesswork. Not sure what examiners want, so marks slip away.</p><p class="a">Examiner tips and common-mistake warnings built into your notes.</p></div>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="#home" aria-label="AccountEd Mauritius home">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="8" fill="#3F6F9A"/><text x="20" y="22" font-family="Manrope,Arial,sans-serif" font-weight="800" font-size="16" text-anchor="middle" fill="#F6F2E6">AE</text><rect x="9" y="27" width="22" height="2.4" rx="1.2" fill="#F6F2E6"/><rect x="14" y="32" width="12" height="2.4" rx="1.2" fill="#F6F2E6"/></svg>
+      <span>AccountEd Mauritius</span>
+    </a>
+    <nav class="main" id="nav" aria-label="Main">
+      <a href="#inside">What you get</a>
+      <a href="#packages">Packages</a>
+      <a href="#author">The author</a>
+      <a href="#questions">Questions</a>
+    </nav>
+    <a class="btn solid sm" data-reg href="#contact">Register →</a>
+    <button class="menu-btn" id="menu" aria-expanded="false" aria-controls="nav" aria-label="Open menu">☰</button>
   </div>
-</section>
+</header>
 
-<section class="sec" id="how">
-  <span class="num">03</span>
-  <h2>How it works, in <em>four</em> steps.</h2>
-  <ol class="list">
-    <li><span class="n">1</span><div><b>Try Chapter 1 free.</b>Download the free chapter for your level, then say hello on WhatsApp or <a href="#contact" data-fb>Facebook</a>.</div></li>
-    <li><span class="n">2</span><div><b>Pick your path.</b>Choose the package that fits you, then <a href="https://forms.gle/Nxg27rVMGW14JPrq8" data-reg>register</a>.</div></li>
-    <li><span class="n">3</span><div><b>Learn and practise.</b>Study at your own pace, with practice and answers.</div></li>
-    <li><span class="n">4</span><div><b>Walk in confident.</b>Arrive on exam day prepared, with habits that last.</div></li>
-  </ol>
-  <p class="note">Start early, learn steadily.</p>
-</section>
-
-<section class="sec book" id="book">
-  <span class="num">04</span>
-  <h2>Meet the <em>Complete Study Book</em>.</h2>
-  <p class="lede">Included in the Video Course and Complete Exam Success. Built for the latest syllabus.</p>
-  <ul>
-    <li>Simple language with clear examples</li>
-    <li>Dos and don'ts for every topic</li>
-    <li>Common mistakes drawn from examiner reports and real classroom experience</li>
-    <li>Practice questions in every chapter, with all answers at the end</li>
-  </ul>
-</section>
-
-<section class="sec" id="packages">
-  <span class="num">05</span>
-  <h2>Choose your <em>path</em>.</h2>
-  <p class="lede">Pay once. Keep it for life. Lifetime access, with no monthly fees.</p>
-  <div class="tabs" role="group" aria-label="Level">
-    <button class="tab" id="tab-o" type="button" aria-pressed="true">O Level</button>
-    <button class="tab" id="tab-a" type="button" aria-pressed="false">A Level</button>
-  </div>
-  <div class="pk" id="pk-o">
-    <div class="card"><span class="tag">Option 1</span><h3>Notes Pack</h3><div class="price">Rs 2,500</div><span class="once">One payment. Lifetime access.</span>
-      <ul><li>PDF notes and chapter summaries</li><li>Q&amp;A banks with full answers</li><li>Examiner tips and step-by-step guides</li></ul>
-      <a class="btn" href="https://forms.gle/Nxg27rVMGW14JPrq8" data-reg>Register &rarr;</a></div>
-    <div class="card"><span class="tag">Option 2</span><h3>Video Course</h3><div class="price">Rs 5,500</div><span class="once">One payment. Lifetime access.</span>
-      <ul><li>Everything in the Notes Pack</li><li>Chapter-by-chapter video lessons</li><li>The Complete Study Book</li></ul>
-      <a class="btn" href="https://forms.gle/Nxg27rVMGW14JPrq8" data-reg>Register &rarr;</a></div>
-    <div class="card"><span class="tag">Option 3 &middot; Limited places</span><h3>Complete Exam Success</h3><div class="price">Rs 10,000</div><span class="once">One payment. Lifetime access.</span>
-      <ul><li>Everything in the Video Course</li><li>A live session every quarter</li><li>Mock exam before your sitting</li></ul>
-      <a class="btn" href="https://forms.gle/Nxg27rVMGW14JPrq8" data-reg>Register &rarr;</a></div>
-  </div>
-  <div class="pk" id="pk-a" hidden>
-    <div class="card"><span class="tag">Option 1</span><h3>Notes Pack</h3><div class="price">Rs 4,000</div><span class="once">One payment. Lifetime access.</span>
-      <ul><li>PDF notes and chapter summaries</li><li>Q&amp;A banks with full answers</li><li>Examiner tips and step-by-step guides</li></ul>
-      <a class="btn" href="https://forms.gle/Nxg27rVMGW14JPrq8" data-reg>Register &rarr;</a></div>
-    <div class="card"><span class="tag">Option 2</span><h3>Video Course</h3><div class="price">Rs 8,000</div><span class="once">One payment. Lifetime access.</span>
-      <ul><li>Everything in the Notes Pack</li><li>Chapter-by-chapter video lessons</li><li>The Complete Study Book</li></ul>
-      <a class="btn" href="https://forms.gle/Nxg27rVMGW14JPrq8" data-reg>Register &rarr;</a></div>
-    <div class="card"><span class="tag">Option 3 &middot; Limited places</span><h3>Complete Exam Success</h3><div class="price">Rs 13,000</div><span class="once">One payment. Lifetime access.</span>
-      <ul><li>Everything in the Video Course</li><li>A live session every quarter</li><li>Mock exam before your sitting</li></ul>
-      <a class="btn" href="https://forms.gle/Nxg27rVMGW14JPrq8" data-reg>Register &rarr;</a></div>
-  </div>
-  <p class="note">Each package includes everything in the one before it. Lifetime access covers the notes, videos and Complete Study Book you receive. By registering you accept the <a href="#terms">Terms and Conditions</a>. Content is sent once your payment is confirmed.</p>
-</section>
-
-<section class="sec" id="fit">
-  <span class="num">06</span>
-  <h2>Is this <em>for you</em>?</h2>
-  <div class="fit">
-    <div><h3>It is for you if</h3><ul>
-      <li>You are a Grade 10 to 13 student in Mauritius preparing for O Level or A Level Accounting.</li>
-      <li>You want clear steps instead of pages of rules.</li>
-      <li>You are happy to study at your own pace, with practice and answers.</li></ul></div>
-    <div><h3>It is not for you if</h3><ul>
-      <li>You want a guaranteed grade. This is a study aid and no exam result is guaranteed.</li>
-      <li>You plan to share the content. Each licence is for one registered buyer only.</li>
-      <li>You expect a refund. All sales are final, so try the free Chapter 1 first.</li></ul></div>
-  </div>
-</section>
-
-<section class="sec" id="author">
-  <span class="num">07</span>
-  <div class="stats">
-    <div class="stat"><b>7</b><span>O Level chapters</span></div>
-    <div class="stat"><b>3</b><span>packages for each level</span></div>
-    <div class="stat"><b>16+</b><span>years in Accounting &amp; Finance</span></div>
-  </div>
-  <div class="about">
-    <div><img class="photo" src="data:image/webp;base64,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" alt="Hassan Mustan" width="200" height="200"></div>
+<main id="site">
+<!-- HERO -->
+<section class="hero" id="home" style="padding-bottom:40px">
+  <div class="wrap hero-grid">
     <div>
-      <h2>Hassan Mustan</h2>
-      <p class="role">Finance &amp; Operations Manager</p>
-      <p class="creds">MBA, BSc, Accounting &amp; Finance Lecturer, 16+ years of experience in Accounting &amp; Finance</p>
-      <p>I teach accounting the way I wish it had been taught to me: plain words, one idea at a time, and plenty of practice with the answers in front of you.</p>
-      <h3>Our mission</h3>
-      <p>To turn accounting from something students fear into something they enjoy, with simple language explanations, clear steps and the tools to walk into the exam room confident and ready.</p>
-      <h3>Our vision</h3>
-      <p>A Mauritius where every student believes they can master accounting, and where the students we guide go on to open doors in business, finance and beyond.</p>
-      <h3>Our goal</h3>
-      <p>To help every student we teach understand accounting, feel prepared, and achieve the grade they are working towards.</p>
+      <span class="pill">Lifetime access · One payment</span>
+      <h1>Accounting made <em>simple</em>. Learn it once. Keep it for <em>life</em>.</h1>
+      <p class="lede">Study notes, video lessons and exam coaching for O Level and A Level Accounting, Grade 10 to 13, in Mauritius.</p>
+      <div class="cta-row">
+        <a class="btn solid" data-reg href="#contact">Register →</a>
+        <a class="btn ghost" data-wa="Hi Hassan, I would like to know more about AccountEd Mauritius." href="#contact">WhatsApp me</a>
+      </div>
+      <p class="free-line">Try it free: <a href="https://drive.google.com/file/d/1-LpKw_PNspt3DjL4Md9spiq7zdx6nrYO/view?usp=sharing" target="_blank" rel="noopener">O Level Chapter 1</a> · <a href="https://drive.google.com/file/d/1wFOGU3o7pq4X3hYeWs6GIuWL8neIlO52/view?usp=sharing" target="_blank" rel="noopener">A Level Chapter 1</a></p>
+      <dl class="facts">
+        <div><dt>Levels</dt><dd>O Level and A Level, Grade 10 to 13</dd></div>
+        <div><dt>Students</dt><dd>Cambridge students in Mauritius</dd></div>
+        <div><dt>Format</dt><dd>Notes, videos and a Complete Study Book</dd></div>
+        <div><dt>Access</dt><dd>Lifetime. One payment, sent once confirmed</dd></div>
+        <div><dt>From</dt><dd>Rs 3,000 (O Level), Rs 6,000 (A Level)</dd></div>
+      </dl>
+    </div>
+
+    <div class="ledger" role="img" aria-label="Animated example of double entry bookkeeping: every entry has a debit and a credit, and the totals always match.">
+      <div class="ledger-h"><b>Journal, posted live</b><span>Rs</span></div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Account</th><th>Dr</th><th>Cr</th></tr></thead>
+          <tbody id="lg-body"></tbody>
+          <tfoot><tr class="totals"><td>Totals</td><td id="lg-dr">0</td><td id="lg-cr">0</td></tr></tfoot>
+        </table>
+      </div>
+      <p class="narr" id="lg-narr">Every entry has two sides.</p>
+      <div class="stamp" id="lg-stamp">BALANCED</div>
     </div>
   </div>
 </section>
 
-<section class="sec" id="questions">
-  <span class="num">08</span>
-  <h2>Questions, <em>answered</em>.</h2>
-  <dl class="faq">
-    <dt>Which levels do you cover?</dt><dd>O Level and A Level Accounting, for Grade 10 to 13 students in Mauritius.</dd>
-    <dt>How do I buy?</dt><dd>Choose a package, fill in the registration form and tick the agreement box. Payment details are given when you register.</dd>
-    <dt>Is it a monthly subscription?</dt><dd>No. You pay once and get lifetime access to the notes, videos and study book you receive. There are no monthly fees or renewals.</dd>
-    <dt>When do I get the content?</dt><dd>It is sent to the registered buyer once your payment is confirmed.</dd>
-    <dt>Can I try it first?</dt><dd>Yes. Download Chapter 1 free: <a href="https://drive.google.com/file/d/1-LpKw_PNspt3DjL4Md9spiq7zdx6nrYO/view?usp=sharing" target="_blank" rel="noopener">O Level</a> or <a href="https://drive.google.com/file/d/1wFOGU3o7pq4X3hYeWs6GIuWL8neIlO52/view?usp=sharing" target="_blank" rel="noopener">A Level</a>.</dd>
-    <dt>What do I get with Complete Exam Success?</dt><dd>Everything in the Video Course, plus a live session every quarter and a mock exam before your sitting. Places are limited.</dd>
-    <dt>Can I get a refund?</dt><dd>No. All sales are final. The only exception is a mistaken charge or a double payment, which you must tell us about within 7 days.</dd>
-    <dt>Can I share the notes with a friend?</dt><dd>No. The licence is personal to one registered buyer. Please read the Terms and Conditions.</dd>
-    <dt>I am under 18. Can I register?</dt><dd>A parent or guardian must accept the terms and pay on your behalf.</dd>
-    <dt>Will I pass?</dt><dd>The content is a study aid, and no exam result is guaranteed.</dd>
-  </dl>
+<!-- WORD CLOUD -->
+<section class="cloud-band" id="words" aria-labelledby="cloud-h">
+  <div class="wrap">
+    <h2 class="cloud-title" id="cloud-h">The words of accounting, in plain language.</h2>
+    <p class="sec-sub">Tap any word to see what it means.</p>
+    <div class="cloud" id="cloud" role="group" aria-label="Accounting word cloud"></div>
+    <div class="def" id="def" aria-live="polite">Tap a word above.</div>
+  </div>
 </section>
 
-<section class="sec close" id="contact">
-  <span class="num">09</span>
-  <h2>Ready to make accounting <em>click</em>?</h2>
-  <p class="lede">Learn it once. Keep it for life. One payment, lifetime access, no monthly fees. Try the free Chapter 1 before you decide.</p>
-  <div class="cta"><a class="btn" href="https://forms.gle/Nxg27rVMGW14JPrq8" data-reg>Register &rarr;</a><a class="tlink" href="#contact" data-wa>Message us on WhatsApp</a></div>
-  <p class="free"><b>Try it free:</b> <a href="https://drive.google.com/file/d/1-LpKw_PNspt3DjL4Md9spiq7zdx6nrYO/view?usp=sharing" target="_blank" rel="noopener">O Level Chapter 1</a> &middot; <a href="https://drive.google.com/file/d/1wFOGU3o7pq4X3hYeWs6GIuWL8neIlO52/view?usp=sharing" target="_blank" rel="noopener">A Level Chapter 1</a></p>
-  <dl class="contact">
-    <dt>WhatsApp</dt><dd id="c-wa">Number to be added</dd>
-    <dt>Email</dt><dd id="c-mail">Address to be added</dd>
-    <dt>Facebook</dt><dd id="c-fb">AccountEd Mauritius</dd>
-  </dl>
+<!-- 01 -->
+<section id="inside">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">01</span><div><h2>What you get</h2><p class="sec-sub">Four things, built to work together.</p></div></div>
+    <div class="grid wide">
+      <div class="card">
+        <svg class="ico" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="5" width="26" height="34" rx="3"/><path d="M15 14h14M15 20h14M15 26h8"/></svg>
+        <h3>Clear notes</h3><p>Theory first, in plain language, with a summary at the end of each chapter.</p>
+      </div>
+      <div class="card">
+        <svg class="ico" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="9" width="36" height="26" rx="4"/><path d="M19 17l9 5-9 5z"/></svg>
+        <h3>Video lessons</h3><p>Chapter-by-chapter videos you can pause, replay and watch at your own pace.</p>
+      </div>
+      <div class="card">
+        <svg class="ico" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 8h28v28H8z"/><path d="M14 17l3 3 5-6M14 29h16"/></svg>
+        <h3>Practice with answers</h3><p>Question banks for every chapter, with full answers and examiner tips.</p>
+      </div>
+      <div class="card">
+        <svg class="ico" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 36V22M18 36V12M28 36V18M38 36V8"/></svg>
+        <h3>A self assessment, with a report</h3><p>Check what you know after each chapter. Hassan sends you a results report.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- 02 -->
+<section id="problem">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">02</span><div><h2>Worried about accounting? You are not alone.</h2></div></div>
+    <div>
+      <div class="pair"><p class="worry">“There is too much to memorise.”</p><p class="answer">Each chapter starts with the idea, then shows the steps. You understand first, so there is less to memorise.</p></div>
+      <div class="pair"><p class="worry">“I am not sure how exams are marked.”</p><p class="answer">Examiner tips and step-by-step statement guides show you what earns marks.</p></div>
+      <div class="pair"><p class="worry">“I have no time for long classes.”</p><p class="answer">Study when you are free, in short sessions. Your notes and videos are always there.</p></div>
+      <div class="pair"><p class="worry">“What if I pay and do not understand it?”</p><p class="answer">Read Chapter 1 free first. If it suits you, register.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">03</span><div><h2>How it works</h2></div></div>
+    <ol class="steps" style="list-style:none;padding:0;margin:0">
+      <li class="step"><h3>Try Chapter 1 free</h3><p>Open the sample for your level and see if the style suits you.</p></li>
+      <li class="step"><h3>Register</h3><p>Fill in the form and tick the box to agree to the Terms.</p></li>
+      <li class="step"><h3>Pay once</h3><p>Payment details are given when you register. No monthly fees.</p></li>
+      <li class="step"><h3>Receive your access</h3><p>Your Google Drive access arrives by Gmail once payment is confirmed.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 04 -->
+<section id="book">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">04</span><div><h2>The Complete Study Book</h2></div></div>
+    <div class="book">
+      <div class="book-art" aria-hidden="true"><small>AccountEd Mauritius</small><b>Complete Study Book</b><small>O Level and A Level</small></div>
+      <div>
+        <p class="sec-sub" style="margin:0 0 14px;max-width:none">One book that holds the whole course together. It comes with the Video Course and Complete Exam Success packages.</p>
+        <ul class="tick">
+          <li>Built for the latest syllabus</li>
+          <li>Simple language with clear examples</li>
+          <li>Yours to keep for life</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 -->
+<section id="packages">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">05</span><div><h2>Packages</h2><p class="sec-sub">Pay once. Keep it for life. Lifetime access, with no monthly fees. Each package includes everything in the one before it.</p></div></div>
+    <div class="tabs" role="tablist" aria-label="Choose your level">
+      <button role="tab" id="tab-o" aria-selected="true" aria-controls="pk-o">O Level</button>
+      <button role="tab" id="tab-a" aria-selected="false" aria-controls="pk-a">A Level</button>
+    </div>
+    <div id="pk-o" role="tabpanel" aria-labelledby="tab-o" class="pk-grid"></div>
+    <div id="pk-a" role="tabpanel" aria-labelledby="tab-a" class="pk-grid" hidden></div>
+    <div id="cmp-o" class="cmp"></div>
+    <div id="cmp-a" class="cmp" hidden></div>
+    <p class="note">Lifetime access covers the notes, videos and Complete Study Book you receive. Live sessions and mock exams are not part of lifetime access. Prices are in Mauritian rupees.</p>
+    <noscript><p class="note"><b>Packages need JavaScript to display.</b> Message Hassan on WhatsApp for the price list.</p></noscript>
+  </div>
+</section>
+
+<!-- 06 -->
+<section id="fit">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">06</span><div><h2>Is this right for you?</h2></div></div>
+    <div class="fit">
+      <div class="card"><h3>This is for you if</h3>
+        <ul>
+          <li>You study Cambridge O Level or A Level Accounting in Mauritius.</li>
+          <li>You like to learn at your own pace.</li>
+          <li>You want theory first, then questions with answers.</li>
+          <li>You prefer one payment over monthly fees.</li>
+        </ul>
+      </div>
+      <div class="card no"><h3>This is not for you if</h3>
+        <ul>
+          <li>You want live tuition every day.</li>
+          <li>You study a syllabus that is not Cambridge.</li>
+          <li>You want a shortcut without doing any practice.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 -->
+<section id="author">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">07</span><div><h2>The author</h2></div></div>
+    <div class="stats">
+      <div class="stat"><b>7</b><span>O Level chapters</span></div>
+      <div class="stat"><b>3</b><span>packages per level</span></div>
+      <div class="stat"><b>15+</b><span>years of experience</span></div>
+    </div>
+    <div class="author">
+      <div class="photo" id="photo" role="img" aria-label="Hassan Mustan">HM</div>
+      <div>
+        <h3>Hassan Mustan</h3>
+        <p class="role">Manager: Finance &amp; Operations · Part-time Lecturer · Soft Skills Trainer</p>
+        <p><b>MBA, BSc (Hons) Accounting with Finance, Accounting &amp; Finance Lecturer, 15+ years of experience in Accounting &amp; Finance.</b></p>
+        <p style="margin-top:10px;color:var(--muted)">I started in accounts in 2010 and grew from clerk to accountant, finance manager and now Manager of Finance &amp; Operations. Since 2019 I have also taught Accounting and Finance. Day to day I prepare financial statements, budgets and statutory returns. I know what students find hard because I explain it every week.</p>
+        <ul class="tick" style="margin-top:14px"><li>MBA</li><li>BSc (Hons) Accounting with Finance</li><li>Data Analytics Bootcamp</li></ul>
+        <dl class="mvg">
+          <div><dt>Mission</dt><dd>To make accounting clear and friendly for every student in Mauritius, so no one has to fear the subject.</dd></div>
+          <div><dt>Vision</dt><dd>A generation of Mauritian students who understand accounting, study with confidence and take that skill into their careers.</dd></div>
+          <div><dt>Goal</dt><dd>To prepare you for the exam and to upskill you for the accounting world, so what you learn here keeps helping you at university and at work.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 -->
+<section id="questions">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">08</span><div><h2>Questions</h2></div></div>
+    <div style="max-width:780px">
+      <details><summary>How do I pay?</summary><p>Register on the form first and agree to the Terms. Payment details are given to you at registration.</p></details>
+      <details><summary>How do I get access?</summary><p>Once your payment is confirmed, your Google Drive folders are shared to your Gmail address.</p></details>
+      <details><summary>Can I share it with a friend?</summary><p>No. Access is personal and cannot be shared, copied or resold. Access may be withdrawn for misuse.</p></details>
+      <details><summary>Can I get a refund?</summary><p>No. Digital content is delivered as soon as you get access, so payments are not refundable. This is why Chapter 1 is free: please read it before you register.</p></details>
+      <details><summary>Which syllabus is it for?</summary><p>Cambridge O Level (Grade 10 and 11) and Cambridge A Level (Grade 12 and 13) Accounting.</p></details>
+      <details><summary>Does lifetime really mean lifetime?</summary><p>Lifetime access lasts for as long as AccountEd Mauritius content for your package remains available. It covers the notes, videos and Complete Study Book you receive. Live sessions and mock exams are not included. The full wording is in the <a href="#terms">Terms and Conditions</a>.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 09 -->
+<section id="contact">
+  <div class="wrap">
+    <div class="closing">
+      <div class="sec-head" style="margin-bottom:18px"><span class="num" style="background:var(--on-accent);color:var(--accent)">09</span><div><h2>Ready when you are.</h2></div></div>
+      <p style="max-width:34em">Read Chapter 1 free. If it feels clear, register and keep the whole course for life.</p>
+      <div class="cta-row">
+        <a class="btn solid" data-reg href="#contact">Register →</a>
+        <a class="btn ghost" data-wa="Hi Hassan, I would like to know more about AccountEd Mauritius." href="#contact">WhatsApp me</a>
+      </div>
+      <p class="free-line">Try it free: <a href="https://drive.google.com/file/d/1-LpKw_PNspt3DjL4Md9spiq7zdx6nrYO/view?usp=sharing" target="_blank" rel="noopener">O Level Chapter 1</a> · <a href="https://drive.google.com/file/d/1wFOGU3o7pq4X3hYeWs6GIuWL8neIlO52/view?usp=sharing" target="_blank" rel="noopener">A Level Chapter 1</a></p>
+      <ul class="contact-list">
+        <li><span>WhatsApp</span><a id="c-wa" href="#contact">…</a></li>
+        <li><span>Email</span><a id="c-mail" href="#contact">…</a></li>
+        <li><span>Facebook</span><a id="c-fb" href="#contact">AccountEd Mauritius</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
 </main>
 
-<section class="terms wrap" id="terms" hidden>
-  <p><a href="#home">&larr; Back to the site</a></p>
-  <h1>Terms and Conditions</h1>
-  <p class="lede">Last updated 15 November 2026</p>
-  <div class="summary">
-    <p><b>All sales are final.</b> There are no refunds once content is delivered.</p>
-    <p><b>Personal use only.</b> One registered buyer, for their own study.</p>
-    <p><b>No sharing.</b> Do not copy, post or pass on any content.</p>
+<!-- TERMS -->
+<div id="terms-view" hidden>
+  <div class="wrap doc">
+    <a href="#home">← Back to the website</a>
+    <h1>Terms and Conditions</h1>
+    <p>AccountEd Mauritius · Last updated: 20 November 2026</p>
+    <div class="summary">
+      <b>In short</b>
+      <ul>
+        <li>Your access is personal. Do not share it.</li>
+        <li>Payments are not refundable, because digital content is delivered when you get access.</li>
+        <li>Lifetime access covers the notes, videos and Complete Study Book you receive.</li>
+        <li>Live sessions and mock exams are not part of lifetime access.</li>
+      </ul>
+    </div>
+
+    <h2>1. Access and use</h2>
+    <p>You receive personal, non-transferable access to the notes, videos and Complete Study Book included in your package.</p>
+    <p>Lifetime access means for as long as AccountEd Mauritius content for that package remains available. It covers only what you receive. Live sessions and mock exams are not included in lifetime access.</p>
+
+    <h2>2. Payment and delivery</h2>
+    <p>You complete the registration form and agree to these Terms before you pay. Payment details are given to you at registration.</p>
+    <p>Content is delivered through Google Drive folders shared to your Gmail address after your payment is confirmed.</p>
+
+    <h2>3. No refund policy</h2>
+    <p><b>Payments are not refundable.</b> Digital content is delivered when you get access, so we cannot take it back. Please read the free Chapter 1 sample before you register.</p>
+
+    <h2>4. Copyright and misuse</h2>
+    <p>All material is © AccountEd Mauritius. You may not copy, share, resell, upload or post any of it. Access may be withdrawn for misuse.</p>
+
+    <h2>5. Online conduct, security and data</h2>
+    <ul>
+      <li>Do not share your link or login with anyone.</li>
+      <li>We collect only the name, contact details and answers needed to deliver the service and prepare your reports.</li>
+      <li>For any question about your data, contact <a data-mail href="#">email</a>.</li>
+    </ul>
+
+    <h2>6. General</h2>
+    <ul>
+      <li>The seller is Hassan Mustan, trading as AccountEd Mauritius.</li>
+      <li>Students under 18 need a parent or guardian to agree to these Terms.</li>
+      <li>The laws of Mauritius apply.</li>
+      <li>We may update these Terms. The new date will be shown at the top.</li>
+    </ul>
   </div>
-  <p>These terms apply to every purchase of AccountEd Mauritius content: notes, question banks, videos, study books and live sessions. The seller is Hassan Mustan, trading as AccountEd Mauritius. By ticking the agreement box on the registration form and paying, the buyer accepts these terms. If the buyer is under 18, a parent or guardian must read and accept the terms and make the payment on the buyer's behalf.</p>
+</div>
 
-  <h3>1. Access and use</h3>
-  <p>One named person, the registered buyer, gets a personal licence for their own study only. It cannot be transferred, sold, lent or shared. The buyer must give true details. Access is linked to the registered name and contact details, and we may ask the buyer to confirm their identity.</p>
-  <p>The content follows the Cambridge O Level and A Level Accounting syllabuses and past examination material. It is a study aid, and no exam result is guaranteed.</p>
-
-  <h3>2. Payment and delivery</h3>
-  <p>Payment details are given when you register. Content is sent to the registered buyer once payment is confirmed. Each package is a single payment. There are no monthly fees or renewals. Lifetime access covers the notes, videos and study book the buyer receives, which the buyer keeps for their own study under the licence in these terms. It does not cover live sessions or mock exams, which are held on the dates given to the buyer.</p>
-
-  <h3>3. No refund policy</h3>
-  <p>All sales are final. Content is digital and made available as soon as payment is confirmed, so there are no refunds, exchanges or credits. This applies to every package and level, and covers changing your mind, no longer needing the content, missing a live session, or not sitting the exam. Download the free Chapter 1 for your level before you buy, so you can see the style of the content first.</p>
-  <p>Exception: if a buyer is charged by mistake or pays twice for the same package, they must tell us within 7 days and we will correct it. Nothing here removes any right under Mauritian law that cannot be waived.</p>
-
-  <h3>4. Copyright and misuse</h3>
-  <p>All content is the copyright of AccountEd Mauritius and its author, Hassan Mustan. This covers notes, summaries, question banks, answers, videos, slides, study books, cheat sheets, templates and designs. Buying gives a licence, not ownership. Cambridge past papers and mark schemes remain the property of Cambridge University Press &amp; Assessment.</p>
-  <p>Buyers must not copy, share, post, resell, upload, record, screen-capture, translate or distribute any content, in print or online. This includes sending it to friends or classmates, posting in groups or on social media, and listing it on file-sharing, tuition or marketplace sites. They must not remove names, watermarks or copyright notices.</p>
-  <p>We may mark delivered content with the buyer's name or an identifier so copies can be traced. If content is shared, we may end access without a refund and take the legal steps Mauritian law allows. The buyer is responsible for sharing that happens through their account, device or files.</p>
-
-  <h3>5. Online conduct, security and data</h3>
-  <p>Buyers must follow Mauritian law, including the Information and Communication Technologies Act 2001. They must not post anything obscene, indecent, offensive, abusive, threatening, false or misleading, or harass staff or other students. We may remove content, block users or end access without a refund, and may report serious cases to the ICT Authority or the police.</p>
-  <p>Buyers must keep login details, links and access codes private and must not try to access our systems or another student's data. Doing so may be an offence under the Cybersecurity and Cybercrime Act 2021. Recording, screenshotting or streaming live sessions is not allowed.</p>
-  <p>We collect only what is needed to register you, take payment, deliver content and give support. We keep it secure, do not sell it, and share it only where needed for payment or delivery. Marketing messages are sent only with consent. Under the Data Protection Act 2017, buyers may ask to see, correct or delete their details by writing to <span data-mail>acced2026@gmail.com</span>.</p>
-
-  <h3>6. General</h3>
-  <p>Live sessions and mock exams apply only to the packages that list them. Dates and joining details will be given, and sessions may be moved with notice.</p>
-  <p>We may update the content for syllabus changes and may update these terms. The terms in force on the day of payment apply to that purchase. These terms are governed by Mauritian law. We will try to settle problems directly first. Questions go to <span data-mail>acced2026@gmail.com</span>.</p>
-  <p>By ticking the agreement box and paying, the buyer confirms they have read and accept these terms and understand that all sales are final.</p>
-</section>
-
-<footer><div class="wrap foot">
-  <span>&copy; 2026 AccountEd Mauritius &middot; Hassan Mustan &middot; <a href="#terms">Terms and Conditions</a></span>
-  <span>Accounting made simple. Learn it once, keep it for life.</span>
-</div></footer>
+<footer>
+  <div class="wrap">
+    <p>© 2026 AccountEd Mauritius · Hassan Mustan · <a href="#terms">Terms and Conditions</a></p>
+    <p>Accounting made simple. Learn it once, keep it for life.</p>
+  </div>
+</footer>
 
 <script>
-/* Fill these in when ready. Leave a value empty to keep its placeholder. */
-var CONTACT = { register: "https://forms.gle/Nxg27rVMGW14JPrq8", whatsapp: "+230 5732 5255", email: "acced2026@gmail.com", facebook: "https://www.facebook.com/share/1CYN6wxDMU/" };
+/* ---------- One place for contact details ---------- */
+var CONTACT = {
+  register: "https://forms.gle/Nxg27rVMGW14JPrq8",
+  whatsapp: "+230 5732 5255",
+  email: "acced2026@gmail.com",
+  facebook: "https://www.facebook.com/share/1CYN6wxDMU/"
+};
+/* Paste your round photo here as data:image/webp;base64,.... Leave empty to show initials. */
+var PHOTO = "data:image/webp;base64,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";
 
+var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+function $(s,r){return (r||document).querySelector(s)}
+function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+
+/* ---------- Packages (prices live here, once) ---------- */
+var BASE = [
+  "PDF notes and chapter summaries","Question banks with full answers","Examiner tips and step-by-step statement guides",
+  "Glossary of accounting terms","Journal entries references","Free Chapter 1 sample"];
+var VIDEO = [
+  "The Complete Study Book","A self assessment for every chapter (multiple choice, benchmark, results report sent to you by Hassan)",
+  "Infographics","Chapter-by-chapter video lessons"];
+var COMPLETE = ["A live session every quarter","A mock exam before your sitting"];
+var PRICES = { o:[3000,6000,12000], a:[6000,9000,15000] };
+var NAMES = ["Notes Pack","Video Course","Complete Exam Success"];
+var LEVEL = { o:"O Level", a:"A Level" };
+
+function money(n){return n.toLocaleString("en-US")}
+function buildPacks(k){
+  var root = $("#pk-"+k), html = "";
+  for(var i=0;i<3;i++){
+    var items = i===0?BASE:(i===1?VIDEO:COMPLETE);
+    var inc = i===0?"":("Everything in "+NAMES[i-1]+", plus:");
+    var msg = "Hi Hassan, I am interested in the "+NAMES[i]+" for "+LEVEL[k]+" Accounting.";
+    html += '<article class="pk'+(i===2?' best':'')+'">'+(i===2?'<span class="badge">Limited places</span>':'')+
+      '<h3>'+NAMES[i]+'</h3><p class="price"><small>Rs</small>'+money(PRICES[k][i])+'</p>'+
+      '<p class="once">One payment. Lifetime access.</p>'+(inc?'<p class="incl">'+inc+'</p>':'')+
+      '<ul>'+items.map(function(t){return '<li>'+t+'</li>'}).join("")+'</ul>'+
+      '<div class="btns"><a class="btn solid" data-reg href="#contact">Register →</a>'+
+      '<a class="btn ghost" data-wa="'+msg+'" href="#contact">Ask on WhatsApp</a></div></article>';
+  }
+  root.innerHTML = html;
+}
+function buildCompare(k){
+  var rows=[]; BASE.forEach(function(t){rows.push([t,1,1,1])});
+  rows.push(["The Complete Study Book",0,1,1],["A self assessment for every chapter, with a results report",0,1,1],["Infographics",0,1,1],["Chapter-by-chapter video lessons",0,1,1],["A live session every quarter",0,0,1],["A mock exam before your sitting",0,0,1]);
+  var h='<h3>Compare the '+LEVEL[k]+' packages</h3><div class="cmp-scroll"><table><caption class="sr" style="position:absolute;left:-9999px">Package comparison for '+LEVEL[k]+'</caption><thead><tr><th scope="col">What you get</th>';
+  for(var i=0;i<3;i++) h+='<th scope="col"'+(i===2?' class="best"':'')+'>'+NAMES[i]+'<span class="p">Rs '+money(PRICES[k][i])+'</span>'+(i===2?'<span class="lim">Limited places</span>':'')+'</th>';
+  h+='</tr></thead><tbody>';
+  rows.forEach(function(r){h+='<tr><td>'+r[0]+'</td>'+[1,2,3].map(function(j){return '<td class="'+(r[j]?'y':'n')+(j===3?' best':'')+'">'+(r[j]?'<span class="sr" style="position:absolute;left:-9999px">Included</span>':'<span aria-label="Not included">–</span>')+'</td>'}).join('')+'</tr>'});
+  h+='<tr><td>One payment. Lifetime access.</td>'+[0,1,2].map(function(i){return '<td'+(i===2?' class="best"':'')+'><a class="btn solid sm" data-reg href="#contact">Register</a></td>'}).join('')+'</tr>';
+  h+='</tbody></table></div>';
+  $("#cmp-"+k).innerHTML=h;
+}
+buildPacks("o"); buildPacks("a"); buildCompare("o"); buildCompare("a");
+
+function setTab(k){
+  ["o","a"].forEach(function(x){
+    var on = x===k;
+    $("#tab-"+x).setAttribute("aria-selected", on);
+    $("#pk-"+x).hidden = !on; $("#cmp-"+x).hidden = !on;
+  });
+}
+$("#tab-o").onclick = function(){setTab("o")};
+$("#tab-a").onclick = function(){setTab("a")};
+$$(".tabs button").forEach(function(b){
+  b.addEventListener("keydown",function(e){
+    if(e.key==="ArrowRight"||e.key==="ArrowLeft"){var k=b.id==="tab-o"?"a":"o";setTab(k);$("#tab-"+k).focus()}
+  });
+});
+
+/* ---------- Wire contact details everywhere ---------- */
 (function(){
-  var site = document.getElementById("site"), terms = document.getElementById("terms");
-  var tabO = document.getElementById("tab-o"), tabA = document.getElementById("tab-a");
-  var pkO = document.getElementById("pk-o"), pkA = document.getElementById("pk-a");
-  function level(a){
-    pkO.hidden = a; pkA.hidden = !a;
-    tabO.setAttribute("aria-pressed", String(!a)); tabA.setAttribute("aria-pressed", String(a));
-  }
-  tabO.addEventListener("click", function(){ level(false); });
-  tabA.addEventListener("click", function(){ level(true); });
+  var num = CONTACT.whatsapp.replace(/\D/g,"");
+  $$("[data-reg]").forEach(function(a){a.href=CONTACT.register;a.target="_blank";a.rel="noopener"});
+  $$("[data-wa]").forEach(function(a){
+    var m = a.getAttribute("data-wa") || "Hi Hassan, I would like to know more about AccountEd Mauritius.";
+    a.href = "https://wa.me/"+num+"?text="+encodeURIComponent(m); a.target="_blank"; a.rel="noopener";
+  });
+  $$("[data-fb]").forEach(function(a){a.href=CONTACT.facebook;a.target="_blank";a.rel="noopener"});
+  $$("[data-mail]").forEach(function(a){a.href="mailto:"+CONTACT.email;a.textContent=CONTACT.email});
+  var wa=$("#c-wa"); wa.textContent=CONTACT.whatsapp; wa.href="https://wa.me/"+num; wa.target="_blank"; wa.rel="noopener";
+  var ml=$("#c-mail"); ml.textContent=CONTACT.email; ml.href="mailto:"+CONTACT.email;
+  var fb=$("#c-fb"); fb.href=CONTACT.facebook; fb.target="_blank"; fb.rel="noopener";
+  if(PHOTO){var p=$("#photo");p.innerHTML='<img alt="Hassan Mustan" src="'+PHOTO+'">'}
+})();
 
-  function route(){
-    var h = location.hash.slice(1);
-    var isTerms = h === "terms";
-    site.hidden = isTerms; terms.hidden = !isTerms;
-    if(isTerms){ window.scrollTo(0,0); return; }
-    if(h === "o-level" || h === "a-level"){ level(h === "a-level"); h = "packages"; }
-    var el = h && document.getElementById(h);
-    if(el) el.scrollIntoView(); else window.scrollTo(0,0);
-  }
-  window.addEventListener("hashchange", route);
-  route();
+/* ---------- Mobile menu ---------- */
+$("#menu").onclick = function(){
+  var o = $("#nav").classList.toggle("open"); this.setAttribute("aria-expanded",o);
+};
+$$("#nav a").forEach(function(a){a.addEventListener("click",function(){$("#nav").classList.remove("open");$("#menu").setAttribute("aria-expanded",false)})});
 
-  var wa = (CONTACT.whatsapp||"").replace(/[^0-9]/g,"");
-  if(wa){
-    document.querySelectorAll("[data-wa]").forEach(function(a){ a.href = "https://wa.me/"+wa; });
-    document.getElementById("c-wa").innerHTML = '<a href="https://wa.me/'+wa+'">'+CONTACT.whatsapp+'</a>';
+/* ---------- Hash routing ---------- */
+var TITLE = document.title;
+function route(){
+  var h = decodeURIComponent(location.hash.slice(1));
+  var terms = h==="terms";
+  $("#site").hidden = terms; $("#terms-view").hidden = !terms;
+  document.title = terms ? "Terms and Conditions | AccountEd Mauritius" : TITLE;
+  if(terms){window.scrollTo(0,0);return}
+  if(h==="o-level"||h==="a-level"){setTab(h==="o-level"?"o":"a"); h="packages"}
+  if(h){var el=document.getElementById(h); if(el){setTimeout(function(){el.scrollIntoView()},0)}}
+}
+window.addEventListener("hashchange",route); route();
+
+/* ---------- Word cloud ---------- */
+var WORDS = [
+ ["Asset",5,"Something the business owns that has value, like cash, stock or equipment."],
+ ["Debit",4,"The left side of an account entry. Assets and expenses go up with a debit."],
+ ["Credit",4,"The right side of an account entry. Income, liabilities and capital go up with a credit."],
+ ["Ledger",4,"A book of accounts, with one page for each account."],
+ ["Liability",4,"Money the business owes to others."],
+ ["Equity",3,"What is left for the owner after the liabilities are taken away from the assets."],
+ ["Journal",3,"The first place a transaction is written down, before it reaches the ledger."],
+ ["Trial balance",3,"A list of every account balance. If debits equal credits, the books add up."],
+ ["Depreciation",3,"Spreading the cost of an asset over the years you use it."],
+ ["Balance sheet",3,"A list of assets, liabilities and equity on one date."],
+ ["Revenue",3,"Money earned from selling goods or services."],
+ ["Inventory",3,"Goods held for sale."],
+ ["Capital",2,"Money the owner puts into the business."],
+ ["Drawings",2,"Money or goods the owner takes out for personal use."],
+ ["Accruals",2,"Expenses used up but not yet paid."],
+ ["Prepayments",2,"Amounts paid in advance for a later period."],
+ ["Receivables",2,"Money customers owe you."],
+ ["Payables",2,"Money you owe to suppliers."],
+ ["Cash flow",2,"Money moving into and out of the business."],
+ ["Income statement",2,"Shows revenue and expenses over a period of time."],
+ ["Double entry",2,"Every transaction is recorded twice: once as a debit and once as a credit."],
+ ["Bank reconciliation",2,"Matching your cash book to the bank statement and explaining the difference."],
+ ["Accounting equation",2,"Assets = Liabilities + Equity. It always holds."],
+ ["Expenses",2,"The costs of running the business."],
+ ["Bad debts",1,"Money owed to you that will not be paid."],
+ ["Provision",1,"An amount set aside for a loss that is likely."],
+ ["Cost of sales",1,"What it cost you to buy the goods you sold."],
+ ["Petty cash",1,"A small amount of cash kept for day-to-day costs."],
+ ["Cash book",1,"A record of all money in and out of the bank and cash."],
+ ["Control account",1,"A summary account for many customers or suppliers."],
+ ["Suspense account",1,"A temporary account that holds a difference until you find the error."],
+ ["Goodwill",1,"The extra value of a business above its net assets."],
+ ["Dividends",1,"A share of earnings paid to the owners of a company."],
+ ["Partnership",1,"A business owned by two or more people."],
+ ["Ratios",1,"Simple comparisons of figures that show how a business is doing."],
+ ["Trade discount",1,"A reduction in price given to a business customer."],
+ ["Reserves",1,"Earnings kept in the company instead of being paid out."],
+ ["Errors",1,"Mistakes in the books. Learn the types and how to correct them."]
+];
+(function(){
+  var box=$("#cloud"), def=$("#def");
+  /* interleave sizes so big words sit among small ones */
+  var big=WORDS.filter(function(w){return w[1]>=3}), small=WORDS.filter(function(w){return w[1]<3}), mix=[];
+  while(big.length||small.length){ if(small.length)mix.push(small.shift()); if(small.length)mix.push(small.shift()); if(big.length)mix.push(big.shift()); }
+  mix.forEach(function(w,i){
+    var b=document.createElement("button"); b.type="button"; b.className="w"+w[1]; b.textContent=w[0];
+    b.style.setProperty("--d",(5+(i*7)%5)+"s"); b.style.setProperty("--dl",(-(i*13)%7)+"s");
+    b.setAttribute("aria-pressed","false");
+    b.onclick=function(){
+      $$("#cloud button").forEach(function(x){x.setAttribute("aria-pressed","false")});
+      b.setAttribute("aria-pressed","true");
+      def.innerHTML="<span><b></b>: </span>"; def.firstChild.firstChild.textContent=w[0]; def.firstChild.appendChild(document.createTextNode(w[2]));
+    };
+    box.appendChild(b);
+  });
+})();
+
+/* ---------- Live ledger ---------- */
+(function(){
+  var TX = [
+    {n:"The owner puts money into the business.",dr:["Bank",50000],cr:["Capital",50000]},
+    {n:"Goods are bought for resale, paid from the bank.",dr:["Inventory",20000],cr:["Bank",20000]},
+    {n:"Goods are sold to a customer for cash.",dr:["Bank",12000],cr:["Sales",12000]},
+    {n:"Rent is paid from the bank.",dr:["Rent",3000],cr:["Bank",3000]}
+  ];
+  var body=$("#lg-body"), dr=$("#lg-dr"), cr=$("#lg-cr"), narr=$("#lg-narr"), stamp=$("#lg-stamp");
+  var sum=0, timers=[];
+  function row(cls,name,d,c){
+    var tr=document.createElement("tr"); tr.className="in";
+    tr.innerHTML='<td class="'+cls+'"></td><td>'+(d?money(d):"")+'</td><td>'+(c?money(c):"")+'</td>';
+    tr.firstChild.textContent=name; body.appendChild(tr);
   }
-  if(CONTACT.facebook) document.querySelectorAll("[data-fb]").forEach(function(a){ a.href = CONTACT.facebook; });
-  if(CONTACT.register) document.querySelectorAll("[data-reg]").forEach(function(a){ a.href = CONTACT.register; });
-  if(CONTACT.email) document.getElementById("c-mail").textContent = CONTACT.email;
-  if(CONTACT.facebook) document.getElementById("c-fb").innerHTML = '<a href="'+CONTACT.facebook+'">AccountEd Mauritius on Facebook</a>';
+  function show(t,i){
+    row("",t.dr[0],t.dr[1],0); row("cr-name",t.cr[0],0,t.cr[1]);
+    sum+=t.dr[1]; dr.textContent=money(sum); cr.textContent=money(sum); narr.textContent=t.n;
+  }
+  function later(fn,ms){timers.push(setTimeout(fn,ms))}
+  function run(){
+    body.innerHTML=""; sum=0; dr.textContent="0"; cr.textContent="0"; stamp.className="stamp";
+    narr.textContent="Every entry has two sides.";
+    TX.forEach(function(t,i){later(function(){show(t,i)},900+i*2100)});
+    later(function(){narr.textContent="Debits equal credits. The books balance."; stamp.className="stamp on"},900+TX.length*2100);
+    later(function(){body.style.opacity=0;stamp.style.opacity=0},900+TX.length*2100+3600);
+    later(function(){body.style.opacity="";stamp.style.opacity="";run()},900+TX.length*2100+4200);
+  }
+  body.style.transition="opacity .5s";
+  if(reduce){TX.forEach(show);narr.textContent="Debits equal credits. The books balance.";stamp.className="stamp on"}
+  else run();
+})();
+
+/* ---------- Background: figures drifting up like a ledger being written ---------- */
+(function(){
+  var c=$("#bg"), ctx=c.getContext("2d"), W=0,H=0,dpr=1,ink="#2F3320",acc="#3F6F9A",P=[];
+  var G=["Dr","Cr","Rs","=","+","%","Σ","1,250","5,000","12,000","0.00","Assets","Equity","Debit","Credit","Cash","Net","Total","Σ","7,500","3,200"];
+  function colors(){var s=getComputedStyle(document.documentElement);ink=s.getPropertyValue("--ink").trim()||ink;acc=s.getPropertyValue("--accent").trim()||acc}
+  function make(y){
+    var big=Math.random()<.18;
+    return {x:Math.random()*W,y:y!==undefined?y:H+20,s:big?30+Math.random()*26:13+Math.random()*10,
+      v:.12+Math.random()*.32,a:big?.07:.07+Math.random()*.08,t:G[(Math.random()*G.length)|0],h:Math.random()<.22,w:Math.random()*6}
+  }
+  function size(){
+    dpr=Math.min(window.devicePixelRatio||1,2); W=innerWidth; H=innerHeight;
+    c.width=W*dpr; c.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+    var n=Math.max(16,Math.min(46,Math.round(W*H/26000)));
+    P=[]; for(var i=0;i<n;i++)P.push(make(Math.random()*H));
+    draw(0);
+  }
+  function draw(step){
+    ctx.clearRect(0,0,W,H);
+    ctx.textBaseline="alphabetic";
+    for(var i=0;i<P.length;i++){
+      var p=P[i];
+      p.y-=p.v*step; p.w+=.01*step;
+      if(p.y<-60){P[i]=p=make()}
+      ctx.globalAlpha=p.a; ctx.fillStyle=p.h?acc:ink;
+      ctx.font="800 "+p.s+"px Manrope, system-ui, sans-serif";
+      ctx.fillText(p.t,p.x+Math.sin(p.w)*6,p.y);
+    }
+    ctx.globalAlpha=1;
+  }
+  colors(); size();
+  window.addEventListener("resize",function(){size()});
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",function(){colors();draw(0)});
+  if(!reduce){
+    var last=0;
+    (function loop(t){ var dt=Math.min(2,(t-last)/16.7||1); last=t; draw(dt); requestAnimationFrame(loop) })(0);
+  }
 })();
 </script>
 </body>
