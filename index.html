@@ -127,6 +127,68 @@ h2{font-size:clamp(1.75rem,4.2vw,2.7rem);line-height:1.1;letter-spacing:-.03em;f
 .step h3{font-size:1.08rem;margin-bottom:6px;font-weight:800}
 .step p{color:var(--muted);font-size:.96rem}
 
+/* inside every chapter */
+.chapter{margin-top:60px}
+.chapter h3{font-size:clamp(1.5rem,3.4vw,2rem);letter-spacing:-.03em;line-height:1.12;font-weight:800}
+.flow{list-style:none;padding:0;margin:28px 0 0;position:relative}
+.flow::before{content:"";position:absolute;left:21px;top:22px;bottom:30px;width:2px;background:var(--accent);transform-origin:top;transform:scaleY(0);transition:transform 1.6s cubic-bezier(.6,0,.2,1)}
+.flow.on::before{transform:scaleY(1)}
+.fs{position:relative;padding:0 0 12px 62px}
+.fs-btn{display:block;width:100%;text-align:left;font:inherit;color:var(--ink);background:none;border:0;cursor:pointer;padding:6px 0 6px;min-height:44px}
+.fs-n{position:absolute;left:0;top:0;width:44px;height:44px;border-radius:50%;border:2px solid var(--accent);background:var(--bg);color:var(--accent);display:grid;place-items:center;font-weight:800;transition:background .2s,color .2s}
+.fs-btn[aria-expanded="true"] .fs-n,.fs-btn:hover .fs-n{background:var(--accent);color:var(--on-accent)}
+.fs-t{display:block;font-weight:800;font-size:1.08rem;line-height:1.25;letter-spacing:-.01em}
+.tag{display:inline-block;margin-top:4px;font-size:.78rem;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--rule);border-radius:999px;padding:2px 10px}
+.fs-d{padding-top:4px;color:var(--muted);font-size:.96rem;max-width:30em}
+.fs-d p+p{margin-top:8px}
+.fs-link{font-weight:600;color:var(--ink)}
+@media (min-width:900px){
+  .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;align-items:start}
+  .flow::before{left:22px;right:22px;top:21px;bottom:auto;width:auto;height:2px;transform-origin:left;transform:scaleX(0)}
+  .flow.on::before{transform:scaleX(1)}
+  .fs{padding:60px 0 0}
+}
+
+/* watch a lesson */
+.video{position:relative;max-width:860px;aspect-ratio:16/9;margin-top:22px;border-radius:var(--radius);overflow:hidden;background:var(--ink);border:1px solid var(--rule)}
+.video iframe,.vplay{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vplay{display:block;padding:0;cursor:pointer;background:var(--ink);overflow:hidden}
+.vplay img{width:100%;height:100%;object-fit:cover;display:block;opacity:.92;transition:opacity .2s,transform .4s}
+.vplay:hover img{opacity:1;transform:scale(1.02)}
+.vbtn{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:var(--accent);box-shadow:0 8px 24px rgba(0,0,0,.35);transition:transform .2s}
+.vbtn::before{content:"";position:absolute;left:30px;top:22px;border-left:24px solid var(--on-accent);border-top:16px solid transparent;border-bottom:16px solid transparent}
+.vplay:hover .vbtn{transform:scale(1.08)}
+
+/* try one question */
+.qcard{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:24px;max-width:760px;margin-top:8px}
+.qcard[hidden]{display:none}
+.qcard .q{margin:14px 0 18px}
+.qcard .q p+p{margin-top:8px}
+.ans{margin-top:20px;border-top:2px solid var(--accent);padding-top:16px;animation:ansIn .45s ease-out}
+.ans p+p,.ans ul+p{margin-top:12px}
+.ans ul{list-style:disc;padding-left:20px;margin-top:6px}
+.ans li{margin:5px 0;color:var(--muted)}
+.ans li b{color:var(--ink)}
+@keyframes ansIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.eq{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:12px 0;font-weight:700}
+.eq i{font-style:normal;font-size:1.3rem;color:var(--accent)}
+.eq .bx{display:block;background:var(--bg);border:1px solid var(--rule);border-radius:12px;padding:8px 12px;font-weight:500;font-size:.88rem;line-height:1.45;font-variant-numeric:tabular-nums}
+.eq .bx b{color:var(--accent);font-size:1rem}
+
+/* chapter lists */
+.cl{margin-top:8px;max-width:760px}
+.cl-grid{max-width:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:0 40px}
+.cl[hidden]{display:none}
+.grp{margin-top:22px}
+.grp h4{margin:0;font-size:1.05rem;font-weight:800;letter-spacing:-.01em;padding-bottom:8px;border-bottom:2px solid var(--ink)}
+.grp h4 small{font-weight:600;color:var(--muted);font-size:.85rem;margin-left:6px}
+.chl{list-style:none;padding:0;margin:0}
+.chl li{display:grid;grid-template-columns:34px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--rule)}
+.cn{width:30px;height:30px;border-radius:50%;background:var(--surface);border:1px solid var(--rule);display:grid;place-items:center;font-weight:800;font-size:.8rem;color:var(--accent);margin-top:1px}
+.chl b{display:block;font-weight:800;line-height:1.3}
+.chl .d{display:block;color:var(--muted);font-size:.92rem;margin-top:2px}
+.chl .x{display:inline-block;margin-top:6px;font-size:.78rem;font-weight:700;color:var(--accent);background:var(--surface);border:1px solid var(--rule);border-radius:999px;padding:2px 10px}
+
 /* word cloud */
 .cloud-band{padding:64px 0 24px}
 .cloud-title{font-size:clamp(1.5rem,3.6vw,2.2rem);letter-spacing:-.03em;line-height:1.12;font-weight:800;max-width:22em}
@@ -351,6 +413,107 @@ footer a{color:var(--ink);font-weight:600}
         <h3>A self assessment, with a report</h3><p>Check what you know after each chapter. Hassan sends you a results report.</p>
       </div>
     </div>
+
+    <div class="chapter" id="watch">
+      <h3>Watch a lesson</h3>
+      <p class="sec-sub">Hear how Hassan explains it. This lesson is free to watch.</p>
+      <div class="video" id="vid" data-id="8xIH2ZYF1QQ">
+        <button type="button" class="vplay" aria-label="Play the lesson video">
+          <img src="https://i.ytimg.com/vi/8xIH2ZYF1QQ/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" onerror="this.remove()">
+          <span class="vbtn" aria-hidden="true"></span>
+        </button>
+      </div>
+      <p class="note"><a href="https://www.youtube.com/watch?v=8xIH2ZYF1QQ" target="_blank" rel="noopener">Open this lesson on YouTube</a> · <a data-yt href="#contact">More lessons on our channel</a></p>
+    </div>
+
+    <div class="chapter" id="chapter">
+      <h3>Inside every chapter</h3>
+      <p class="sec-sub">Every chapter follows the same five steps. Tap a step to see what it holds.</p>
+      <ol class="flow" id="flow">
+        <li class="fs">
+          <button type="button" class="fs-btn" aria-expanded="true" aria-controls="fs1"><span class="fs-n">1</span><span class="fs-t">Read the theory</span><span class="tag">Notes Pack</span></button>
+          <div id="fs1" class="fs-d"><p>Each chapter starts with the idea in plain language, then a summary you can revise from.</p><p class="fs-link">See how it feels: <a href="https://drive.google.com/file/d/1-LpKw_PNspt3DjL4Md9spiq7zdx6nrYO/view?usp=sharing" target="_blank" rel="noopener">O Level Chapter 1</a> · <a href="https://drive.google.com/file/d/1wFOGU3o7pq4X3hYeWs6GIuWL8neIlO52/view?usp=sharing" target="_blank" rel="noopener">A Level Chapter 1</a>, free.</p></div>
+        </li>
+        <li class="fs">
+          <button type="button" class="fs-btn" aria-expanded="false" aria-controls="fs2"><span class="fs-n">2</span><span class="fs-t">Learn the method</span><span class="tag">Notes Pack</span></button>
+          <div id="fs2" class="fs-d" hidden><p>Examiner tips and step-by-step statement guides show you how marks are earned.</p></div>
+        </li>
+        <li class="fs">
+          <button type="button" class="fs-btn" aria-expanded="false" aria-controls="fs3"><span class="fs-n">3</span><span class="fs-t">Practise with answers</span><span class="tag">Notes Pack</span></button>
+          <div id="fs3" class="fs-d" hidden><p>Question banks for every chapter, each with the full answer.</p></div>
+        </li>
+        <li class="fs">
+          <button type="button" class="fs-btn" aria-expanded="false" aria-controls="fs4"><span class="fs-n">4</span><span class="fs-t">Take the self assessment</span><span class="tag">Video Course and above</span></button>
+          <div id="fs4" class="fs-d" hidden><p>Multiple choice questions and a benchmark, so you see where you stand.</p></div>
+        </li>
+        <li class="fs">
+          <button type="button" class="fs-btn" aria-expanded="false" aria-controls="fs5"><span class="fs-n">5</span><span class="fs-t">Get your results report</span><span class="tag">Video Course and above</span></button>
+          <div id="fs5" class="fs-d" hidden><p>Hassan sends you a report of your results, so you know what to work on next.</p></div>
+        </li>
+      </ol>
+      <p class="note">Prefer to watch? The chapter-by-chapter video lessons sit beside steps 1 to 3 in the Video Course and Complete Exam Success.</p>
+    </div>
+
+    <div class="chapter" id="chapters">
+      <h3>Every chapter, level by level</h3>
+      <p class="sec-sub">Each chapter below comes with notes and questions with full answers. Pick your level to see what you will study.</p>
+      <div class="tabs" role="tablist" aria-label="Choose a level to see its chapters" style="margin-top:22px;margin-bottom:8px">
+        <button role="tab" id="ctab-o" aria-selected="true" aria-controls="cl-o">O Level (7)</button>
+        <button role="tab" id="ctab-a" aria-selected="false" aria-controls="cl-a">A Level (25)</button>
+      </div>
+      <div id="cl-o" role="tabpanel" aria-labelledby="ctab-o" class="cl"></div>
+      <div id="cl-a" role="tabpanel" aria-labelledby="ctab-a" class="cl cl-grid" hidden></div>
+    </div>
+
+    <div class="chapter" id="try">
+      <h3>Try one question</h3>
+      <p class="sec-sub">Have a go on paper first. Then check the full answer, step by step.</p>
+      <div class="tabs" role="tablist" aria-label="Choose a level for your question" style="margin-top:22px;margin-bottom:8px">
+        <button role="tab" id="qtab-o" aria-selected="true" aria-controls="q-o">O Level</button>
+        <button role="tab" id="qtab-a" aria-selected="false" aria-controls="q-a">A Level</button>
+      </div>
+
+      <article id="q-o" role="tabpanel" aria-labelledby="qtab-o" class="qcard">
+        <span class="tag">O Level · Chapter 1: Fundamentals of Accounting</span>
+        <div class="q">
+          <p>Nadia starts a business. She has cash of Rs 40,000 and equipment worth Rs 25,000. She still owes her supplier Rs 15,000 for the equipment.</p>
+          <p><b>(a)</b> Calculate Nadia's owner's equity.</p>
+          <p><b>(b)</b> Nadia pays the supplier Rs 5,000 from cash. Show the accounting equation after this payment.</p>
+        </div>
+        <button type="button" class="btn ghost sm qbtn" aria-expanded="false" aria-controls="a-o">Show the full answer</button>
+        <div id="a-o" class="ans" hidden>
+          <p><b>(a)</b> Assets = Rs 40,000 + Rs 25,000 = Rs 65,000.<br>Liabilities = Rs 15,000.<br>Owner's equity = Assets − Liabilities = Rs 65,000 − Rs 15,000 = <b>Rs 50,000</b>.</p>
+          <p><b>(b)</b> After the payment, cash falls to Rs 35,000 and the amount owed falls to Rs 10,000.</p>
+          <div class="eq" aria-label="Assets Rs 60,000 equals Liabilities Rs 10,000 plus Owner's equity Rs 50,000">
+            <span class="bx">Assets<br>Rs 35,000 + Rs 25,000<br><b>Rs 60,000</b></span><i>=</i>
+            <span class="bx">Liabilities<br>Rs 15,000 − Rs 5,000<br><b>Rs 10,000</b></span><i>+</i>
+            <span class="bx">Owner's equity<br>no change<br><b>Rs 50,000</b></span>
+          </div>
+          <p><b>Remember:</b> paying a debt lowers assets and liabilities by the same amount, so owner's equity stays the same. Check: Rs 60,000 = Rs 10,000 + Rs 50,000.</p>
+        </div>
+      </article>
+
+      <article id="q-a" role="tabpanel" aria-labelledby="qtab-a" class="qcard" hidden>
+        <span class="tag">A Level · Chapter 1: Types of Business Entity</span>
+        <div class="q">
+          <p>Amina runs her shop as a sole trader. She is thinking of turning it into a private limited company.</p>
+          <p><b>(a)</b> State two differences between a sole trader and a private limited company. <i>(2 marks)</i></p>
+          <p><b>(b)</b> Explain one risk that Amina carries now that she would no longer carry personally if she became a company. <i>(2 marks)</i></p>
+        </div>
+        <button type="button" class="btn ghost sm qbtn" aria-expanded="false" aria-controls="a-a">Show the full answer</button>
+        <div id="a-a" class="ans" hidden>
+          <p><b>(a)</b> Any two of these:</p>
+          <ul>
+            <li><b>Liability:</b> a sole trader has unlimited liability. The shareholders of a company have limited liability.</li>
+            <li><b>Legal status:</b> a sole trader and the business are the same person in law. A company is a separate legal entity, so it can own assets, owe money and be sued in its own name.</li>
+            <li><b>Capital:</b> a sole trader depends on personal savings and loans. A company can raise capital by issuing shares to other investors.</li>
+            <li><b>Continuity:</b> a company carries on if a shareholder dies or sells their shares. A sole trader's business ends with the owner.</li>
+          </ul>
+          <p><b>(b)</b> As a sole trader, Amina has unlimited liability. If the shop owes more than its assets are worth, creditors can claim her personal assets, such as her car or savings, to settle the debts. As a shareholder of a company, she could lose only the money she put into it.</p>
+          <p><b>Remember:</b> in a two-mark "explain" question, give the point and then say what it means for Amina.</p>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -362,7 +525,7 @@ footer a{color:var(--ink);font-weight:600}
       <div class="pair"><p class="worry">“There is too much to memorise.”</p><p class="answer">Each chapter starts with the idea, then shows the steps. You understand first, so there is less to memorise.</p></div>
       <div class="pair"><p class="worry">“I am not sure how exams are marked.”</p><p class="answer">Examiner tips and step-by-step statement guides show you what earns marks.</p></div>
       <div class="pair"><p class="worry">“I have no time for long classes.”</p><p class="answer">Study when you are free, in short sessions. Your notes and videos are always there.</p></div>
-      <div class="pair"><p class="worry">“What if I pay and do not understand it?”</p><p class="answer">Read Chapter 1 free first. If it suits you, register.</p></div>
+      <div class="pair"><p class="worry">“What if I pay and do not understand it?”</p><p class="answer">Watch Chapter 1 free first. If it suits you, register.</p></div>
     </div>
   </div>
 </section>
@@ -372,10 +535,10 @@ footer a{color:var(--ink);font-weight:600}
   <div class="wrap">
     <div class="sec-head"><span class="num">03</span><div><h2>How it works</h2></div></div>
     <ol class="steps" style="list-style:none;padding:0;margin:0">
-      <li class="step"><h3>Try Chapter 1 free</h3><p>Open the sample for your level and see if the style suits you.</p></li>
+      <li class="step"><h3>Try Chapter 1 free</h3><p>Watch the sample for your level and see if the style suits you.</p></li>
       <li class="step"><h3>Register</h3><p>Fill in the form and tick the box to agree to the Terms.</p></li>
-      <li class="step"><h3>Pay once</h3><p>Payment details are given when you register. No monthly fees.</p></li>
-      <li class="step"><h3>Receive your access</h3><p>Your Google Drive access arrives by Gmail once payment is confirmed.</p></li>
+      <li class="step"><h3>Pay once</h3><p>Hassan sends you the payment details by message after you register. Pay once, then <a data-wa="Hi Hassan, I have made my payment. Here is my screenshot." href="#contact">send a screenshot on WhatsApp</a>. No monthly fees, no instalments.</p></li>
+      <li class="step"><h3>Receive your access</h3><p>Your Google Drive access arrives by Gmail within 24 hours of your payment being confirmed.</p></li>
     </ol>
   </div>
 </section>
@@ -410,7 +573,7 @@ footer a{color:var(--ink);font-weight:600}
     <div id="pk-a" role="tabpanel" aria-labelledby="tab-a" class="pk-grid" hidden></div>
     <div id="cmp-o" class="cmp"></div>
     <div id="cmp-a" class="cmp" hidden></div>
-    <p class="note">Lifetime access covers the notes, videos and Complete Study Book you receive. Live sessions and mock exams are not part of lifetime access. Prices are in Mauritian rupees.</p>
+    <p class="note">Lifetime access covers the notes, videos and Complete Study Book you receive. Live sessions and mock exams are not part of lifetime access. Prices are in Mauritian rupees. Payment is made once, in full. Instalments are not offered.</p>
     <noscript><p class="note"><b>Packages need JavaScript to display.</b> Message Hassan on WhatsApp for the price list.</p></noscript>
   </div>
 </section>
@@ -445,6 +608,7 @@ footer a{color:var(--ink);font-weight:600}
     <div class="sec-head"><span class="num">07</span><div><h2>The author</h2></div></div>
     <div class="stats">
       <div class="stat"><b>7</b><span>O Level chapters</span></div>
+      <div class="stat"><b>25</b><span>A Level chapters</span></div>
       <div class="stat"><b>3</b><span>packages per level</span></div>
       <div class="stat"><b>15+</b><span>years of experience</span></div>
     </div>
@@ -471,10 +635,10 @@ footer a{color:var(--ink);font-weight:600}
   <div class="wrap">
     <div class="sec-head"><span class="num">08</span><div><h2>Questions</h2></div></div>
     <div style="max-width:780px">
-      <details><summary>How do I pay?</summary><p>Register on the form first and agree to the Terms. Payment details are given to you at registration.</p></details>
-      <details><summary>How do I get access?</summary><p>Once your payment is confirmed, your Google Drive folders are shared to your Gmail address.</p></details>
+      <details><summary>How do I pay?</summary><p>Register on the form first and agree to the Terms. Hassan then sends you the payment details by message. Pay once, then send a screenshot of your payment to Hassan on WhatsApp. There are no monthly fees and no instalments.</p></details>
+      <details><summary>How do I get access?</summary><p>Once your payment is confirmed, your Google Drive folders are shared to your Gmail address within 24 hours.</p></details>
       <details><summary>Can I share it with a friend?</summary><p>No. Access is personal and cannot be shared, copied or resold. Access may be withdrawn for misuse.</p></details>
-      <details><summary>Can I get a refund?</summary><p>No. Digital content is delivered as soon as you get access, so payments are not refundable. This is why Chapter 1 is free: please read it before you register.</p></details>
+      <details><summary>Can I get a refund?</summary><p>No. Digital content is delivered as soon as you get access, so payments are not refundable. This is why Chapter 1 is free: please watch it before you register.</p></details>
       <details><summary>Which syllabus is it for?</summary><p>Cambridge O Level (Grade 10 and 11) and Cambridge A Level (Grade 12 and 13) Accounting.</p></details>
       <details><summary>Does lifetime really mean lifetime?</summary><p>Lifetime access lasts for as long as AccountEd Mauritius content for your package remains available. It covers the notes, videos and Complete Study Book you receive. Live sessions and mock exams are not included. The full wording is in the <a href="#terms">Terms and Conditions</a>.</p></details>
     </div>
@@ -486,7 +650,7 @@ footer a{color:var(--ink);font-weight:600}
   <div class="wrap">
     <div class="closing">
       <div class="sec-head" style="margin-bottom:18px"><span class="num" style="background:var(--on-accent);color:var(--accent)">09</span><div><h2>Ready when you are.</h2></div></div>
-      <p style="max-width:34em">Read Chapter 1 free. If it feels clear, register and keep the whole course for life.</p>
+      <p style="max-width:34em">Watch Chapter 1 free. If it feels clear, register and keep the whole course for life.</p>
       <div class="cta-row">
         <a class="btn solid" data-reg href="#contact">Register →</a>
         <a class="btn ghost" data-wa="Hi Hassan, I would like to know more about AccountEd Mauritius." href="#contact">WhatsApp me</a>
@@ -513,6 +677,7 @@ footer a{color:var(--ink);font-weight:600}
     <div class="summary">
       <b>In short</b>
       <ul>
+        <li>Payment details are sent by message after you register. Pay once, in full.</li>
         <li>Your access is personal. Do not share it.</li>
         <li>Payments are not refundable, because digital content is delivered when you get access.</li>
         <li>Lifetime access covers the notes, videos and Complete Study Book you receive.</li>
@@ -525,11 +690,12 @@ footer a{color:var(--ink);font-weight:600}
     <p>Lifetime access means for as long as AccountEd Mauritius content for that package remains available. It covers only what you receive. Live sessions and mock exams are not included in lifetime access.</p>
 
     <h2>2. Payment and delivery</h2>
-    <p>You complete the registration form and agree to these Terms before you pay. Payment details are given to you at registration.</p>
-    <p>Content is delivered through Google Drive folders shared to your Gmail address after your payment is confirmed.</p>
+    <p>You complete the registration form and agree to these Terms before you pay. Payment details are sent to you by message after you register. They are not published on this website.</p>
+    <p>Payment is made once, in full. Instalments are not offered. After you pay, send a screenshot of your payment to AccountEd Mauritius on WhatsApp.</p>
+    <p>Content is delivered through Google Drive folders shared to your Gmail address within 24 hours of your payment being confirmed.</p>
 
     <h2>3. No refund policy</h2>
-    <p><b>Payments are not refundable.</b> Digital content is delivered when you get access, so we cannot take it back. Please read the free Chapter 1 sample before you register.</p>
+    <p><b>Payments are not refundable.</b> Digital content is delivered when you get access, so we cannot take it back. Please watch the free Chapter 1 sample before you register.</p>
 
     <h2>4. Copyright and misuse</h2>
     <p>All material is © AccountEd Mauritius. You may not copy, share, resell, upload or post any of it. Access may be withdrawn for misuse.</p>
@@ -656,6 +822,115 @@ $("#menu").onclick = function(){
   var o = $("#nav").classList.toggle("open"); this.setAttribute("aria-expanded",o);
 };
 $$("#nav a").forEach(function(a){a.addEventListener("click",function(){$("#nav").classList.remove("open");$("#menu").setAttribute("aria-expanded",false)})});
+
+/* ---------- Chapter lists ---------- */
+var CH_O = [
+ ["Fundamentals of Accounting","Book-keeping versus accounting, the purpose of measuring profit, and the accounting equation (Assets = Liabilities + Owner's Equity)."],
+ ["Sources and Recording of Data","Double entry, ledger divisions, business documents, books of prime entry, trade and cash discount, and petty cash (imprest)."],
+ ["Verification of Accounting Records","Trial balance and its limits, error types, correction through journals and suspense, bank reconciliation, and control accounts."],
+ ["Accounting Procedures","Capital versus revenue items, depreciation and disposals, accruals and prepayments, irrecoverable debts and the allowance for them, and inventory at the lower of cost and net realisable value."],
+ ["Preparation of Financial Statements","Sole traders, partnerships, limited companies, clubs, manufacturing accounts and incomplete records.","Two video lessons"],
+ ["Analysis and Interpretation","Ratios (margins, mark-up, ROCE, current and liquid ratios, turnover), comparing businesses, interested parties and the limits of accounts."],
+ ["Accounting Principles and Modern Practice","The core concepts. The 2027–2029 syllabus adds ethics and technology and sustainability, and drops accounting policies."]
+];
+var CH_A = [
+ ["Financial accounting","Chapters 1–8",1,[
+  ["Types of Business Entity"],["The Accounting System"],["Accounting for Non-Current Assets"],["Reconciliation and Verification"],
+  ["Financial Statements of Sole Traders"],["Financial Statements of Partnerships"],["Financial Statements of Limited Companies"],["Analysis and Communication of Accounting Information"]]],
+ ["Costing","Chapters 9–12",9,[
+  ["Costs and Cost Behaviour"],["Costing Applications and Absorption Costing"],["Marginal Costing and Break-even Analysis"],["Marginal Costing and Decision Making"]]],
+ ["Advanced financial accounting","Chapters 13–20",13,[
+  ["Partnership Changes","Goodwill, admission, retirement, dissolution and merger."],
+  ["Clubs and Societies","Accumulated fund, subscriptions and life membership."],
+  ["Manufacturing Accounts","Prime cost, factory profit and unrealised profit."],
+  ["Limited Companies: Full Statements","Cash flow statement, equity statement and the non-current assets schedule."],
+  ["The Regulatory Framework","IAS 1, 8, 10, 36, 37 and 38."],
+  ["Ethics, Auditing and Stewardship"],
+  ["Business Acquisition and Merger","Goodwill on acquisition and the journals."],
+  ["Computerised Accounting Systems"]]],
+ ["Management accounting","Chapters 21–25",21,[
+  ["Advanced Ratio Analysis","Working capital cycle, gearing, interest cover and investor ratios."],
+  ["Activity Based Costing"],["Standard Costing and Variance Analysis"],["Budgeting and Budgetary Control"],
+  ["Investment Appraisal","ARR, payback, NPV and IRR."]]]
+];
+function esc(t){return String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function chLi(n,c){
+  return '<li><span class="cn">'+n+'</span><div><b>'+esc(c[0])+'</b>'+(c[1]?'<span class="d">'+esc(c[1])+'</span>':'')+(c[2]?'<span class="x">'+esc(c[2])+'</span>':'')+'</div></li>';
+}
+(function(){
+  $("#cl-o").innerHTML='<ol class="chl">'+CH_O.map(function(c,i){return chLi(i+1,c)}).join("")+'</ol>';
+  $("#cl-a").innerHTML=CH_A.map(function(g){
+    return '<div class="grp"><h4>'+g[0]+'<small>'+g[1]+'</small></h4><ol class="chl">'+g[3].map(function(c,i){return chLi(g[2]+i,c)}).join("")+'</ol></div>';
+  }).join("");
+  function show(k){
+    ["o","a"].forEach(function(x){
+      $("#ctab-"+x).setAttribute("aria-selected",x===k);
+      $("#cl-"+x).hidden=x!==k;
+    });
+  }
+  $("#ctab-o").onclick=function(){show("o")};
+  $("#ctab-a").onclick=function(){show("a")};
+  $$("#ctab-o,#ctab-a").forEach(function(b){
+    b.addEventListener("keydown",function(e){
+      if(e.key==="ArrowRight"||e.key==="ArrowLeft"){var k=b.id==="ctab-o"?"a":"o";show(k);$("#ctab-"+k).focus()}
+    });
+  });
+})();
+
+/* ---------- Watch a lesson (loads YouTube only when played) ---------- */
+(function(){
+  var box=$("#vid"), btn=$(".vplay",box);
+  btn.addEventListener("click",function(){
+    var f=document.createElement("iframe");
+    f.src="https://www.youtube-nocookie.com/embed/"+box.getAttribute("data-id")+"?autoplay=1&rel=0&modestbranding=1";
+    f.title="AccountEd Mauritius lesson video";
+    f.allow="accelerometer; autoplay; encrypted-media; picture-in-picture; fullscreen";
+    f.setAttribute("allowfullscreen","");
+    box.innerHTML=""; box.appendChild(f); f.focus();
+  });
+})();
+
+/* ---------- Try one question ---------- */
+(function(){
+  function show(k){
+    ["o","a"].forEach(function(x){
+      $("#qtab-"+x).setAttribute("aria-selected",x===k);
+      $("#q-"+x).hidden=x!==k;
+    });
+  }
+  $("#qtab-o").onclick=function(){show("o")};
+  $("#qtab-a").onclick=function(){show("a")};
+  $$("#qtab-o,#qtab-a").forEach(function(b){
+    b.addEventListener("keydown",function(e){
+      if(e.key==="ArrowRight"||e.key==="ArrowLeft"){var k=b.id==="qtab-o"?"a":"o";show(k);$("#qtab-"+k).focus()}
+    });
+  });
+  $$(".qbtn").forEach(function(b){
+    b.addEventListener("click",function(){
+      var open=b.getAttribute("aria-expanded")==="true";
+      b.setAttribute("aria-expanded",!open);
+      b.textContent=open?"Show the full answer":"Hide the answer";
+      document.getElementById(b.getAttribute("aria-controls")).hidden=open;
+    });
+  });
+})();
+
+/* ---------- Inside every chapter ---------- */
+(function(){
+  var flow=$("#flow");
+  $$(".fs-btn",flow).forEach(function(b){
+    b.addEventListener("click",function(){
+      var open=b.getAttribute("aria-expanded")==="true";
+      b.setAttribute("aria-expanded",!open);
+      document.getElementById(b.getAttribute("aria-controls")).hidden=open;
+    });
+  });
+  if(reduce||!("IntersectionObserver" in window)){flow.classList.add("on");return}
+  var io=new IntersectionObserver(function(en){
+    if(en[0].isIntersecting){flow.classList.add("on");io.disconnect()}
+  },{threshold:.3});
+  io.observe(flow);
+})();
 
 /* ---------- Hash routing ---------- */
 var TITLE = document.title;
